@@ -1,0 +1,118 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> Reading design: Doan.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Doan.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Doan"
+Output Format                      : NGC
+Target Device                      : CoolRunner2 CPLDs
+
+---- Source Options
+Top Module Name                    : Doan
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+
+---- Target Options
+Add IO Buffers                     : YES
+MACRO Preserve                     : YES
+XOR Preserve                       : YES
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : Yes
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Verilog 2001                       : YES
+
+---- Other Options
+Clock Enable                       : YES
+wysiwyg                            : NO
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "D:/Component/DOAN/Doan/Doan.vhd" in Library work.
+Entity <Doan> compiled.
+ERROR:HDLParsers:164 - "D:/Component/DOAN/Doan/Doan.vhd" Line 44. parse error, unexpected COLON, expecting error or IDENTIFIER
+ERROR:HDLParsers:3312 - "D:/Component/DOAN/Doan/Doan.vhd" Line 59. Undefined symbol 'DAU_CHAM_8LED'.
+ERROR:HDLParsers:3312 - "D:/Component/DOAN/Doan/Doan.vhd" Line 60. Undefined symbol 'ENA_GIAIMA_8LED'.
+ERROR:HDLParsers:3312 - "D:/Component/DOAN/Doan/Doan.vhd" Line 62. Undefined symbol 'GIOT'.
+ERROR:HDLParsers:3312 - "D:/Component/DOAN/Doan/Doan.vhd" Line 62. Undefined symbol 'GIO'.
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 62. GIO: Undefined symbol (last report in this block)
+ERROR:HDLParsers:709 - "D:/Component/DOAN/Doan/Doan.vhd" Line 63. CHIA_10ENA is not an entity name
+ERROR:HDLParsers:3313 - "D:/Component/DOAN/Doan/Doan.vhd" Line 65. Undefined symbol 'ENB'.  Should it be: EtB?
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 65. ENB: Undefined symbol (last report in this block)
+ERROR:HDLParsers:709 - "D:/Component/DOAN/Doan/Doan.vhd" Line 67. DEM_GIOPHUTGIAY is not an entity name
+ERROR:HDLParsers:3312 - "D:/Component/DOAN/Doan/Doan.vhd" Line 72. Undefined symbol 'PHUT'.
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 72. PHUT: Undefined symbol (last report in this block)
+ERROR:HDLParsers:3312 - "D:/Component/DOAN/Doan/Doan.vhd" Line 73. Undefined symbol 'GIAY'.
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 73. GIAY: Undefined symbol (last report in this block)
+ERROR:HDLParsers:709 - "D:/Component/DOAN/Doan/Doan.vhd" Line 74. HEXTOBCD_6BIT is not an entity name
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 75. GIOT: Undefined symbol (last report in this block)
+ERROR:HDLParsers:3312 - "D:/Component/DOAN/Doan/Doan.vhd" Line 76. Undefined symbol 'DV_GIO'.
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 76. DV_GIO: Undefined symbol (last report in this block)
+ERROR:HDLParsers:3312 - "D:/Component/DOAN/Doan/Doan.vhd" Line 77. Undefined symbol 'CH_GIO'.
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 77. CH_GIO: Undefined symbol (last report in this block)
+ERROR:HDLParsers:709 - "D:/Component/DOAN/Doan/Doan.vhd" Line 78. GIAIMA_8LED_7DOAN is not an entity name
+ERROR:HDLParsers:3312 - "D:/Component/DOAN/Doan/Doan.vhd" Line 81. Undefined symbol 'DV_GIAY'.
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 81. DV_GIAY: Undefined symbol (last report in this block)
+ERROR:HDLParsers:3312 - "D:/Component/DOAN/Doan/Doan.vhd" Line 82. Undefined symbol 'CH_GIAY'.
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 82. CH_GIAY: Undefined symbol (last report in this block)
+ERROR:HDLParsers:3312 - "D:/Component/DOAN/Doan/Doan.vhd" Line 84. Undefined symbol 'DV_PHUT'.
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 84. DV_PHUT: Undefined symbol (last report in this block)
+ERROR:HDLParsers:3312 - "D:/Component/DOAN/Doan/Doan.vhd" Line 85. Undefined symbol 'CH_PHUT'.
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 85. CH_PHUT: Undefined symbol (last report in this block)
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 89. DAU_CHAM_8LED: Undefined symbol (last report in this block)
+ERROR:HDLParsers:1209 - "D:/Component/DOAN/Doan/Doan.vhd" Line 90. ENA_GIAIMA_8LED: Undefined symbol (last report in this block)
+--> 
+
+Total memory usage is 288744 kilobytes
+
+Number of errors   :   31 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

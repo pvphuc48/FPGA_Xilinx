@@ -1,0 +1,58 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to D:/ThietKeLogicSo/DOAN/LAM_HEP_XUNG/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.22 secs
+ 
+--> Parameter xsthdpdir set to D:/ThietKeLogicSo/DOAN/LAM_HEP_XUNG/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.22 secs
+ 
+--> Reading design: LAM_HEP_XUNG.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "D:\ThietKeLogicSo\DOAN\LAM_HEP_XUNG\LAM_HEP_XUNG.vhd" into library work
+Parsing entity <CD_LAM_HEP_BTN_MOD>.
+Parsing architecture <Behavioral> of entity <lam_hep_xung>.
+ERROR:HDLCompiler:374 - "D:\ThietKeLogicSo\DOAN\LAM_HEP_XUNG\LAM_HEP_XUNG.vhd" Line 37: Entity <lam_hep_xung> is not yet compiled.
+ERROR:HDLCompiler:69 - "D:\ThietKeLogicSo\DOAN\LAM_HEP_XUNG\LAM_HEP_XUNG.vhd" Line 38: <std_logic> is not declared.
+ERROR:HDLCompiler:69 - "D:\ThietKeLogicSo\DOAN\LAM_HEP_XUNG\LAM_HEP_XUNG.vhd" Line 42: <qff> is not declared.
+ERROR:HDLCompiler:69 - "D:\ThietKeLogicSo\DOAN\LAM_HEP_XUNG\LAM_HEP_XUNG.vhd" Line 40: <ckht> is not declared.
+ERROR:HDLCompiler:69 - "D:\ThietKeLogicSo\DOAN\LAM_HEP_XUNG\LAM_HEP_XUNG.vhd" Line 45: <q> is not declared.
+VHDL file D:\ThietKeLogicSo\DOAN\LAM_HEP_XUNG\LAM_HEP_XUNG.vhd ignored due to errors
+--> 
+
+Total memory usage is 337864 kilobytes
+
+Number of errors   :    5 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

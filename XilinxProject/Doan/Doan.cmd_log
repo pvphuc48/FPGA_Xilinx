@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "D:/Component/DOAN/Doan/Doan.xst" -ofn "D:/Component/DOAN/Doan/Doan.syr" 

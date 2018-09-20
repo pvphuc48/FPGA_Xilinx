@@ -1,0 +1,6 @@
+V3 7
+EN work/Doan 0 FL D:/Component/DOAN/Doan/Doan.vhd PB ieee/std_logic_1164 1381692176 \
+      PB ieee/std_logic_arith 1381692177 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/Doan/Behavioral 0 \
+      FL D:/Component/DOAN/Doan/Doan.vhd EN work/Doan 0 CP work/CHIA_10ENA \
+      CP work/DEM_GIOPHUTGIAY CP work/HEXTOBCD_6BIT CP work/GIAIMA_8LED_7DOAN

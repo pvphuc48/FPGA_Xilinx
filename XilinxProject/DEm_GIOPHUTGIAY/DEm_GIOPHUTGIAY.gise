@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="DEm_GIOPHUTGIAY.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DEm_GIOPHUTGIAY.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="DEm_GIOPHUTGIAY.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="DEm_GIOPHUTGIAY.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DEm_GIOPHUTGIAY_tb_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1521090976" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1521090976">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1521090976" xil_pn:in_ck="-8725532537616868365" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1521090976">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="DEm_GIOPHUTGIAY.vhd"/>
+      <outfile xil_pn:name="DEm_GIOPHUTGIAY_tb.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1521090976" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-4884075421694005740" xil_pn:start_ts="1521090976">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1521090976" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="3402816541255251506" xil_pn:start_ts="1521090976">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1521090976" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="1034195309082420434" xil_pn:start_ts="1521090976">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1521090976" xil_pn:in_ck="-8725532537616868365" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1521090976">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="DEm_GIOPHUTGIAY.vhd"/>
+      <outfile xil_pn:name="DEm_GIOPHUTGIAY_tb.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1521091074" xil_pn:in_ck="-8725532537616868365" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-6374292162522362567" xil_pn:start_ts="1521091071">
+      <status xil_pn:value="FailedRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+  </transforms>
+
+</generated_project>

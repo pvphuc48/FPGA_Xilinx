@@ -1,0 +1,73 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to D:/Component/DOAN/gio_phut_giay/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to D:/Component/DOAN/gio_phut_giay/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: gio_phut_giay.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "D:\Component\DOAN\gio_phut_giay\DEm_GIOPHUTGIAY.vhd" into library work
+Parsing entity <DEm_GIOPHUTGIAY>.
+Parsing architecture <Behavioral> of entity <dem_giophutgiay>.
+Parsing VHDL file "D:\Component\DOAN\gio_phut_giay\DEBOUNCE_BTN.vhd" into library work
+Parsing entity <DEBOUNCE_BTN>.
+Parsing architecture <Behavioral> of entity <debounce_btn>.
+Parsing VHDL file "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" into library work
+Parsing entity <gio_phut_giay>.
+Parsing architecture <Behavioral> of entity <gio_phut_giay>.
+ERROR:HDLCompiler:32 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 27: <phut> is already declared in this region.
+ERROR:HDLCompiler:69 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 43: <btn_n> is not declared.
+ERROR:HDLCompiler:69 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 44: <bst_up> is not declared.
+ERROR:HDLCompiler:69 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 45: <bst_mod> is not declared.
+ERROR:HDLCompiler:69 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 46: <btn_n> is not declared.
+ERROR:HDLCompiler:104 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 52: Cannot find <chia_10ena> in library <work>. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+ERROR:HDLCompiler:104 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 66: Cannot find <cd_lam_hep_btn> in library <work>. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+ERROR:HDLCompiler:104 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 70: Cannot find <xuly_mod_daucham> in library <work>. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+ERROR:HDLCompiler:69 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 83: <ena_ud> is not declared.
+ERROR:HDLCompiler:104 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 87: Cannot find <hextobcd_6bit> in library <work>. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+ERROR:HDLCompiler:104 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 91: Cannot find <hextobcd_6bit> in library <work>. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+ERROR:HDLCompiler:104 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 95: Cannot find <hextobcd_6bit> in library <work>. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+ERROR:HDLCompiler:104 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 99: Cannot find <giaima_8led_7doan> in library <work>. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+ERROR:HDLCompiler:854 - "D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 23: Unit <behavioral> ignored due to previous errors.
+VHDL file D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd ignored due to errors
+--> 
+
+Total memory usage is 275304 kilobytes
+
+Number of errors   :   14 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="HDLCompiler" num="32" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 27: &lt;<arg fmt="%s" index="1">phut</arg>&gt; is already declared in this region.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 43: &lt;<arg fmt="%s" index="1">btn_n</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 44: &lt;<arg fmt="%s" index="1">bst_up</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 45: &lt;<arg fmt="%s" index="1">bst_mod</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 46: &lt;<arg fmt="%s" index="1">btn_n</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="104" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 52: Cannot find &lt;<arg fmt="%s" index="1">chia_10ena</arg>&gt; in library &lt;<arg fmt="%s" index="2">work</arg>&gt;. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="104" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 66: Cannot find &lt;<arg fmt="%s" index="1">cd_lam_hep_btn</arg>&gt; in library &lt;<arg fmt="%s" index="2">work</arg>&gt;. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="104" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 70: Cannot find &lt;<arg fmt="%s" index="1">xuly_mod_daucham</arg>&gt; in library &lt;<arg fmt="%s" index="2">work</arg>&gt;. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 83: &lt;<arg fmt="%s" index="1">ena_ud</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="104" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 87: Cannot find &lt;<arg fmt="%s" index="1">hextobcd_6bit</arg>&gt; in library &lt;<arg fmt="%s" index="2">work</arg>&gt;. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="104" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 91: Cannot find &lt;<arg fmt="%s" index="1">hextobcd_6bit</arg>&gt; in library &lt;<arg fmt="%s" index="2">work</arg>&gt;. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="104" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 95: Cannot find &lt;<arg fmt="%s" index="1">hextobcd_6bit</arg>&gt; in library &lt;<arg fmt="%s" index="2">work</arg>&gt;. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="104" delta="new" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 99: Cannot find &lt;<arg fmt="%s" index="1">giaima_8led_7doan</arg>&gt; in library &lt;<arg fmt="%s" index="2">work</arg>&gt;. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="854" delta="old" >"D:\Component\DOAN\gio_phut_giay\gio_phut_giay.vhd" Line 23: Unit &lt;<arg fmt="%s" index="1">behavioral</arg>&gt; ignored due to previous errors.
+</msg>
+
+</messages>
+

@@ -1,0 +1,2 @@
+vhdl isim_temp "DEM_6LED.vhd"
+vhdl isim_temp "DEM_6LED_tb.vhd"

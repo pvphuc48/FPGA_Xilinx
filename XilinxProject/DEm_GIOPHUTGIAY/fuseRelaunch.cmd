@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "D:/ThietKeLogicSo/DOAN/DEm_GIOPHUTGIAY/DEm_GIOPHUTGIAY_tb_isim_beh.exe" -prj "D:/ThietKeLogicSo/DOAN/DEm_GIOPHUTGIAY/DEm_GIOPHUTGIAY_tb_beh.prj" "work.DEm_GIOPHUTGIAY_tb" 

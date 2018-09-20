@@ -1,0 +1,2 @@
+vhdl work "DEM_6LED.vhd"
+vhdl work "DEM_6LED_tb.vhd"
