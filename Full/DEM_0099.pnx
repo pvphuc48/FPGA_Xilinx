@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE ibis [
+<!ELEMENT ibis (part, pin+)>
+<!ELEMENT part EMPTY>
+<!ELEMENT pin EMPTY>
+<!ATTLIST part
+  arch   CDATA #REQUIRED
+  device CDATA #REQUIRED
+  spg    CDATA #REQUIRED
+  pkg    CDATA #REQUIRED>
+<!ATTLIST pin
+  nm     CDATA #REQUIRED
+  no     CDATA #REQUIRED
+  iostd  (LVTTL|SSTL3_I|LVCMOS33|LVCMOS25|SSTL2_I|LVCMOS18|LVCMOS15|HSTL_I|NA) "NA"
+  sr     (SLOW|FAST|slow|fast) "SLOW"
+  dir    (BIDIR|bidir|INPUT|input|OUTPUT|output) "BIDIR">
+]>
+<ibis><part arch="xbr" device="XC2C256" pkg="TQ144" spg="-7"/><pin dir="input" iostd="LVCMOS18" nm="BTDOWN" no="61"/><pin dir="input" iostd="LVCMOS18" nm="BTUP" no="60"/><pin dir="input" iostd="LVCMOS18" nm="CLK" no="38"/><pin dir="input" iostd="LVCMOS18" nm="CLR" no="2"/><pin dir="input" iostd="LVCMOS18" nm="GIAYPHUT" no="4"/><pin dir="input" iostd="LVCMOS18" nm="PAUSE" no="5"/><pin dir="input" iostd="LVCMOS18" nm="UD" no="3"/><pin dir="output" iostd="LVCMOS18" nm="SSEG_7&lt;0&gt;" no="33" sr="fast"/><pin dir="output" iostd="LVCMOS18" nm="SSEG_7&lt;10&gt;" no="78" sr="fast"/><pin dir="output" iostd="LVCMOS18" nm="SSEG_7&lt;1&gt;" no="34" sr="fast"/><pin dir="output" iostd="LVCMOS18" nm="SSEG_7&lt;2&gt;" no="35" sr="fast"/><pin dir="output" iostd="LVCMOS18" nm="SSEG_7&lt;3&gt;" no="39" sr="fast"/><pin dir="output" iostd="LVCMOS18" nm="SSEG_7&lt;4&gt;" no="41" sr="fast"/><pin dir="output" iostd="LVCMOS18" nm="SSEG_7&lt;5&gt;" no="42" sr="fast"/><pin dir="output" iostd="LVCMOS18" nm="SSEG_7&lt;6&gt;" no="43" sr="fast"/><pin dir="output" iostd="LVCMOS18" nm="SSEG_7&lt;7&gt;" no="81" sr="fast"/><pin dir="output" iostd="LVCMOS18" nm="SSEG_7&lt;8&gt;" no="82" sr="fast"/><pin dir="output" iostd="LVCMOS18" nm="SSEG_7&lt;9&gt;" no="77" sr="fast"/></ibis>

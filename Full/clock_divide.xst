@@ -1,0 +1,5 @@
+set -tmpdir "D:/ThietKeLogicSo/DOANHETHONGSO/xst/projnav.tmp"
+set -xsthdpdir "D:/ThietKeLogicSo/DOANHETHONGSO/xst"
+elaborate
+-ifn clock_divide.prj
+-ifmt mixed

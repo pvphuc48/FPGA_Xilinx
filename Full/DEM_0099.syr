@@ -1,0 +1,329 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Reading design: DEM_0099.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "DEM_0099.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "DEM_0099"
+Output Format                      : NGC
+Target Device                      : CoolRunner2 CPLDs
+
+---- Source Options
+Top Module Name                    : DEM_0099
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+
+---- Target Options
+Add IO Buffers                     : YES
+MACRO Preserve                     : YES
+XOR Preserve                       : YES
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : Yes
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Verilog 2001                       : YES
+
+---- Other Options
+Clock Enable                       : YES
+wysiwyg                            : NO
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "E:/VS/DOANHETHONGSO/clock_didive.vhd" in Library work.
+Architecture behavioral of Entity clock_divide is up to date.
+Compiling vhdl file "E:/VS/DOANHETHONGSO/DOANHETHONGSO.vhd" in Library work.
+Architecture behavioral of Entity dem_0099 is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <DEM_0099> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <clock_divide> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <DEM_0099> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "E:/VS/DOANHETHONGSO/DOANHETHONGSO.vhd" line 126: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <CLR>
+Entity <DEM_0099> analyzed. Unit <DEM_0099> generated.
+
+Analyzing Entity <clock_divide> in library <work> (Architecture <behavioral>).
+Entity <clock_divide> analyzed. Unit <clock_divide> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <clock_divide>.
+    Related source file is "E:/VS/DOANHETHONGSO/clock_didive.vhd".
+    Found 1-bit register for signal <clock_div_int>.
+    Found 18-bit up counter for signal <count>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <clock_divide> synthesized.
+
+
+Synthesizing Unit <DEM_0099>.
+    Related source file is "E:/VS/DOANHETHONGSO/DOANHETHONGSO.vhd".
+    Found finite state machine <FSM_0> for signal <dem>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 4                                              |
+    | Inputs             | 0                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clock_div_sig             (rising_edge)        |
+    | Power Up State     | 0000000000                                     |
+    | Encoding           | automatic                                      |
+    | Implementation     | automatic                                      |
+    -----------------------------------------------------------------------
+    Found 11-bit register for signal <SSEG_7>.
+    Found 4-bit register for signal <CHG>.
+    Found 4-bit adder for signal <CHG$add0000> created at line 188.
+    Found 4-bit subtractor for signal <CHG$addsub0000> created at line 166.
+    Found 4-bit subtractor for signal <CHG$addsub0001> created at line 213.
+    Found 4-bit register for signal <CHP>.
+    Found 4-bit adder for signal <CHP$add0000> created at line 192.
+    Found 4-bit subtractor for signal <CHP$addsub0000> created at line 172.
+    Found 4-bit subtractor for signal <CHP$addsub0001> created at line 203.
+    Found 4-bit register for signal <DVG>.
+    Found 4-bit adder for signal <DVG$add0000> created at line 186.
+    Found 4-bit subtractor for signal <DVG$addsub0000> created at line 159.
+    Found 4-bit subtractor for signal <DVG$addsub0001> created at line 215.
+    Found 4-bit register for signal <DVP>.
+    Found 4-bit adder for signal <DVP$add0000> created at line 190.
+    Found 4-bit subtractor for signal <DVP$addsub0000> created at line 164.
+    Found 4-bit subtractor for signal <DVP$addsub0001> created at line 211.
+    Found 17-bit register for signal <DVT>.
+    Found 17-bit adder for signal <DVT$add0000> created at line 185.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  13 Adder/Subtractor(s).
+Unit <DEM_0099> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 13
+ 17-bit adder                                          : 1
+ 4-bit adder                                           : 4
+ 4-bit subtractor                                      : 8
+# Counters                                             : 1
+ 18-bit up counter                                     : 1
+# Registers                                            : 7
+ 1-bit register                                        : 1
+ 11-bit register                                       : 1
+ 17-bit register                                       : 1
+ 4-bit register                                        : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <dem/FSM> on signal <dem[1:4]> with one-hot encoding.
+------------------------
+ State      | Encoding
+------------------------
+ 0000000000 | 0001
+ 0000000001 | 0010
+ 0000000010 | 0100
+ 0000000011 | 1000
+------------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 13
+ 17-bit adder                                          : 1
+ 4-bit adder                                           : 4
+ 4-bit subtractor                                      : 8
+# Counters                                             : 1
+ 18-bit up counter                                     : 1
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <DEM_0099> ...
+  implementation constraint: INIT=s	 : dem_FSM_FFd4
+  implementation constraint: INIT=r	 : DVG_3
+  implementation constraint: INIT=r	 : DVP_3
+  implementation constraint: INIT=r	 : DVT_16
+  implementation constraint: INIT=r	 : CHG_3
+  implementation constraint: INIT=r	 : CHP_3
+  implementation constraint: INIT=r	 : dem_FSM_FFd3
+  implementation constraint: INIT=r	 : dem_FSM_FFd2
+  implementation constraint: INIT=r	 : dem_FSM_FFd1
+  implementation constraint: INIT=r	 : CHP_0
+  implementation constraint: INIT=r	 : CHP_1
+  implementation constraint: INIT=r	 : CHP_2
+  implementation constraint: INIT=r	 : CHG_0
+  implementation constraint: INIT=r	 : CHG_1
+  implementation constraint: INIT=r	 : CHG_2
+  implementation constraint: INIT=r	 : DVT_0
+  implementation constraint: INIT=r	 : DVT_1
+  implementation constraint: INIT=r	 : DVT_2
+  implementation constraint: INIT=r	 : DVT_3
+  implementation constraint: INIT=r	 : DVT_4
+  implementation constraint: INIT=r	 : DVT_5
+  implementation constraint: INIT=r	 : DVT_6
+  implementation constraint: INIT=r	 : DVT_7
+  implementation constraint: INIT=r	 : DVT_8
+  implementation constraint: INIT=r	 : DVT_9
+  implementation constraint: INIT=r	 : DVT_10
+  implementation constraint: INIT=r	 : DVT_11
+  implementation constraint: INIT=r	 : DVT_12
+  implementation constraint: INIT=r	 : DVT_13
+  implementation constraint: INIT=r	 : DVT_14
+  implementation constraint: INIT=r	 : DVT_15
+  implementation constraint: INIT=r	 : DVP_0
+  implementation constraint: INIT=r	 : DVP_1
+  implementation constraint: INIT=r	 : DVP_2
+  implementation constraint: INIT=r	 : DVG_0
+  implementation constraint: INIT=r	 : DVG_1
+  implementation constraint: INIT=r	 : DVG_2
+
+Optimizing unit <clock_divide> ...
+  implementation constraint: INIT=r	 : count_17
+  implementation constraint: INIT=r	 : count_16
+  implementation constraint: INIT=r	 : count_0
+  implementation constraint: INIT=r	 : count_1
+  implementation constraint: INIT=r	 : count_2
+  implementation constraint: INIT=r	 : count_3
+  implementation constraint: INIT=r	 : count_4
+  implementation constraint: INIT=r	 : count_5
+  implementation constraint: INIT=r	 : count_6
+  implementation constraint: INIT=r	 : count_7
+  implementation constraint: INIT=r	 : count_8
+  implementation constraint: INIT=r	 : count_9
+  implementation constraint: INIT=r	 : count_10
+  implementation constraint: INIT=r	 : count_11
+  implementation constraint: INIT=r	 : count_12
+  implementation constraint: INIT=r	 : count_13
+  implementation constraint: INIT=r	 : count_14
+  implementation constraint: INIT=r	 : count_15
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : DEM_0099.ngr
+Top Level Output File Name         : DEM_0099
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : Yes
+Target Technology                  : CoolRunner2 CPLDs
+Macro Preserve                     : YES
+XOR Preserve                       : YES
+Clock Enable                       : YES
+wysiwyg                            : NO
+
+Design Statistics
+# IOs                              : 18
+
+Cell Usage :
+# BELS                             : 1459
+#      AND2                        : 440
+#      AND3                        : 67
+#      AND4                        : 20
+#      AND5                        : 7
+#      AND8                        : 3
+#      GND                         : 2
+#      INV                         : 570
+#      OR2                         : 246
+#      OR3                         : 17
+#      XOR2                        : 87
+# FlipFlops/Latches                : 67
+#      FD                          : 33
+#      FDCE                        : 34
+# IO Buffers                       : 18
+#      IBUF                        : 7
+#      OBUF                        : 11
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.44 secs
+ 
+--> 
+
+Total memory usage is 295344 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

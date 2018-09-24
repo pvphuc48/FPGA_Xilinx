@@ -1,0 +1,27 @@
+Removed Pin From Net: NetName=NetDS1_7 Pin=P1-1
+Removed Pin From Net: NetName=NetDS1_8 Pin=P1-2
+Removed Pin From Net: NetName=NetDS2_7 Pin=P1-3
+Removed Pin From Net: NetName=NetDS2_8 Pin=P1-4
+Removed Pin From Net: NetName=NetDS1_5 Pin=P1-5
+Removed Pin From Net: NetName=NetDS1_6 Pin=P1-6
+Removed Pin From Net: NetName=NetDS1_3 Pin=P1-7
+Removed Pin From Net: NetName=NetDS1_4 Pin=P1-8
+Removed Pin From Net: NetName=NetDS1_1 Pin=P1-9
+Removed Pin From Net: NetName=NetDS1_9 Pin=P1-10
+Removed Pin From Net: NetName=NetDS1_10 Pin=P1-11
+Change Component DesignItemId : Designator=P1 Old DesignItemId=Header 11 New DesignItemId=Header 7
+Change Component Footprint: Designator=P1 Old Footprint=HDR1X11 New Footprint=HDR1X7
+Change Component Comment : Designator=P1 Old Comment=Header 11 New Comment=Header 7
+Added Component: Designator=P2(HDR1X4)
+Added Pin To Net: NetName=NetDS1_5 Pin=P1-1
+Added Pin To Net: NetName=NetDS1_6 Pin=P1-2
+Added Pin To Net: NetName=NetDS1_3 Pin=P1-3
+Added Pin To Net: NetName=NetDS1_4 Pin=P1-4
+Added Pin To Net: NetName=NetDS1_1 Pin=P1-5
+Added Pin To Net: NetName=NetDS1_9 Pin=P1-6
+Added Pin To Net: NetName=NetDS1_10 Pin=P1-7
+Added Pin To Net: NetName=NetDS1_7 Pin=P2-1
+Added Pin To Net: NetName=NetDS1_8 Pin=P2-2
+Added Pin To Net: NetName=NetDS2_7 Pin=P2-3
+Added Pin To Net: NetName=NetDS2_8 Pin=P2-4
+Added Member To Class: ClassName=DOANHETHONGSO Member=Component P2 Header 4

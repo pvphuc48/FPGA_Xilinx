@@ -1,0 +1,1351 @@
+MDF Database:  version 1.0
+MDF_INFO | DEM_0099 | XC2C256-7-TQ144
+MACROCELL | 4 | 1 | SSEG_7<0>_MC
+ATTRIBUTES | 2290352898 | 0
+OUTPUTMC | 1 | 4 | 1
+INPUTS | 23 | CHG<0>  | CHG<1>  | N_PZ_489  | N_PZ_392  | CHP<0>  | CHP<2>  | CHP<1>  | CHP<3>  | dem_FSM_FFd1  | DVP<2>  | DVP<0>  | DVP<1>  | DVP<3>  | dem_FSM_FFd2  | CHG<2>  | CHG<3>  | DVG<2>  | DVG<1>  | DVG<0>  | DVG<3>  | dem_FSM_FFd4  | dem_FSM_FFd3  | SSEG_7<0>
+INPUTMC | 23 | 3 | 5 | 6 | 8 | 4 | 2 | 4 | 7 | 2 | 11 | 2 | 9 | 2 | 10 | 2 | 8 | 4 | 0 | 6 | 6 | 6 | 7 | 4 | 12 | 4 | 14 | 4 | 13 | 6 | 9 | 2 | 12 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 15 | 4 | 4 | 4 | 5 | 4 | 1
+LCT | 1 | 2 | Internal_Name
+EQ | 21 | 
+   SSEG_7<0> := !CHG<0> & !CHG<1> & N_PZ_489 & !N_PZ_392
+	# CHP<0> & !CHP<2> & !CHP<1> & !CHP<3> & 
+	dem_FSM_FFd1
+	# !CHP<0> & CHP<2> & !CHP<1> & !CHP<3> & 
+	dem_FSM_FFd1
+	# DVP<2> & !DVP<0> & !DVP<1> & !DVP<3> & 
+	dem_FSM_FFd2
+	# !DVP<2> & DVP<0> & !DVP<1> & !DVP<3> & 
+	dem_FSM_FFd2
+	# CHG<0> & !CHG<1> & !CHG<2> & !CHG<3> & !N_PZ_392
+	# DVG<2> & !DVG<1> & !DVG<0> & !DVG<3> & 
+	dem_FSM_FFd4
+	# !DVG<2> & !DVG<1> & DVG<0> & !DVG<3> & 
+	dem_FSM_FFd4
+	# !dem_FSM_FFd1 & !dem_FSM_FFd2 & !dem_FSM_FFd3 & 
+	!dem_FSM_FFd4 & SSEG_7<0>
+	# CHG<0> & !DVG<2> & DVG<1> & !DVG<0> & DVG<3> & 
+	CHG<1> & !CHG<2> & !CHG<3> & dem_FSM_FFd3
+	# !CHG<0> & !DVG<2> & DVG<1> & !DVG<0> & DVG<3> & 
+	!CHG<1> & !CHG<2> & !CHG<3> & dem_FSM_FFd3;	// (11 pt, 23 inp)
+    SSEG_7<0>.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 2 | 11 | CHP<0>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 12 | 4 | 11 | 6 | 2 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14
+INPUTS | 16 | CHP<0>  | N_PZ_523  | CHP_mux0007<3>15  | UD  | PAUSE  | CHP_cmp_eq0001  | GIAYPHUT  | BTUP  | BTDOWN  | CHP<2>  | CHP<1>  | CHP<3>  | DVP<2>  | DVP<0>  | DVP<1>  | DVP<3>
+INPUTMC | 11 | 2 | 11 | 6 | 1 | 4 | 11 | 4 | 9 | 2 | 9 | 2 | 10 | 2 | 8 | 6 | 6 | 6 | 7 | 4 | 12 | 4 | 14
+INPUTP | 5 | 3 | 5 | 4 | 90 | 95
+LCT | 1 | 4 | Internal_Name
+EQ | 16 | 
+   CHP<0>.T := !CHP<0> & N_PZ_523 & CHP_mux0007<3>15
+	# UD & !PAUSE & CHP_cmp_eq0001 & !CHP_mux0007<3>15
+	# CHP<0> & PAUSE & GIAYPHUT & BTUP & 
+	!CHP_mux0007<3>15
+	# CHP<0> & PAUSE & !GIAYPHUT & BTDOWN & 
+	!CHP_mux0007<3>15
+	# !CHP<0> & PAUSE & !GIAYPHUT & BTDOWN & 
+	CHP_mux0007<3>15
+	# !CHP<0> & !PAUSE & CHP_mux0007<3>15 & !CHP<2> & 
+	!CHP<1> & !CHP<3>
+	# !CHP<0> & !UD & !PAUSE & !DVP<2> & !DVP<0> & 
+	!DVP<1> & !DVP<3>
+	# !UD & !PAUSE & !DVP<2> & !DVP<0> & !DVP<1> & 
+	!DVP<3> & !CHP_mux0007<3>15;	// (8 pt, 16 inp)
+   CHP<0>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    CHP<0>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 6 | 6 | DVP<2>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 15 | 4 | 15 | 4 | 14 | 4 | 8 | 4 | 9 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 14 | N_PZ_453  | DVP<0>  | DVP<1>  | N_PZ_571  | PAUSE  | CHG<0>  | N_PZ_456  | CHG<1>  | N_PZ_489  | BTUP  | N_PZ_523  | GIAYPHUT  | BTDOWN  | DVP_cmp_eq0002
+INPUTMC | 10 | 2 | 7 | 6 | 7 | 4 | 12 | 4 | 15 | 3 | 5 | 6 | 0 | 6 | 8 | 4 | 2 | 6 | 1 | 6 | 12
+INPUTP | 4 | 5 | 90 | 4 | 95
+LCT | 1 | 4 | Internal_Name
+EQ | 11 | 
+   DVP<2>.T := N_PZ_453 & !DVP<0> & !DVP<1> & !N_PZ_571
+	# !PAUSE & CHG<0> & N_PZ_456 & !CHG<1> & N_PZ_489 & 
+	DVP<0> & DVP<1>
+	# CHG<0> & N_PZ_456 & BTUP & !CHG<1> & N_PZ_489 & 
+	DVP<0> & DVP<1>
+	# !CHG<0> & !N_PZ_456 & N_PZ_523 & CHG<1> & 
+	N_PZ_489 & DVP<0> & DVP<1>
+	# PAUSE & !GIAYPHUT & BTDOWN & !CHG<0> & 
+	DVP_cmp_eq0002 & CHG<1> & N_PZ_489 & !DVP<0> & !DVP<1>;	// (5 pt, 14 inp)
+   DVP<2>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    DVP<2>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 3 | 5 | CHG<0>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 19 | 2 | 12 | 6 | 14 | 6 | 9 | 2 | 7 | 6 | 8 | 6 | 15 | 4 | 15 | 4 | 14 | 4 | 12 | 6 | 7 | 6 | 6 | 4 | 11 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 3 | N_PZ_614  | N_PZ_456  | N_PZ_523
+INPUTMC | 3 | 4 | 10 | 6 | 0 | 6 | 1
+LCT | 1 | 4 | Internal_Name
+EQ | 4 | 
+   CHG<0>.T := N_PZ_614
+	# N_PZ_456 & N_PZ_523;	// (2 pt, 3 inp)
+   CHG<0>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    CHG<0>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 6 | 0 | N_PZ_456_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 19 | 3 | 10 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 3 | 3 | 6 | 0 | 1 | 0 | 6 | 0 | 9 | 3 | 4 | 0 | 15 | 0 | 2 | 0 | 5 | 0 | 12 | 3 | 5 | 2 | 12 | 6 | 9 | 6 | 8 | 6 | 6
+INPUTS | 5 | UD  | PAUSE  | CHG_cmp_eq0001  | GIAYPHUT  | CHG_cmp_eq0002
+INPUTMC | 2 | 5 | 10 | 6 | 13
+INPUTP | 3 | 3 | 5 | 4
+EQ | 2 | 
+   N_PZ_456 = UD & !PAUSE & CHG_cmp_eq0001
+	# PAUSE & GIAYPHUT & CHG_cmp_eq0002;	// (2 pt, 5 inp)
+
+MACROCELL | 5 | 10 | CHG_cmp_eq0001_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 4 | 3 | 2 | 6 | 0 | 6 | 9 | 6 | 15
+INPUTS | 5 | DVG<2>  | DVG<1>  | DVG<0>  | DVG<3>  | N_PZ_385
+INPUTMC | 5 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 15 | 0 | 8
+EQ | 2 | 
+   CHG_cmp_eq0001 = !DVG<2> & DVG<1> & !DVG<0> & DVG<3> & !N_PZ_385
+	# !DVG<2> & !DVG<1> & DVG<0> & DVG<3> & N_PZ_385;	// (2 pt, 5 inp)
+
+MACROCELL | 0 | 12 | DVG<2>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 16 | 4 | 10 | 0 | 15 | 6 | 12 | 0 | 12 | 5 | 10 | 6 | 13 | 2 | 12 | 2 | 7 | 4 | 7 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 14 | N_PZ_456  | DVG<2>  | BTUP  | UD  | PAUSE  | DVG<1>  | DVG<0>  | N_PZ_385  | DVG<3>  | GIAYPHUT  | BTDOWN  | N_PZ_627  | N_PZ_513  | N_PZ_529
+INPUTMC | 9 | 6 | 0 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 8 | 0 | 15 | 0 | 7 | 3 | 4 | 3 | 3
+INPUTP | 5 | 90 | 3 | 5 | 4 | 95
+LCT | 1 | 4 | Internal_Name
+EQ | 12 | 
+   DVG<2>.T := N_PZ_456 & DVG<2> & BTUP
+	# UD & !PAUSE & DVG<1> & DVG<0> & N_PZ_385
+	# !UD & !PAUSE & DVG<2> & !DVG<1> & !DVG<0> & 
+	N_PZ_385
+	# !UD & !PAUSE & !DVG<1> & !DVG<0> & DVG<3> & 
+	N_PZ_385
+	# PAUSE & !GIAYPHUT & BTDOWN & !DVG<1> & !DVG<0> & 
+	N_PZ_627
+	# GIAYPHUT & DVG<1> & BTUP & DVG<0> & !N_PZ_513 & 
+	N_PZ_529;	// (6 pt, 14 inp)
+   DVG<2>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    DVG<2>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 5 | DVG<1>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 17 | 4 | 10 | 0 | 15 | 6 | 12 | 0 | 5 | 0 | 12 | 5 | 10 | 6 | 13 | 2 | 12 | 2 | 7 | 4 | 7 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 11 | N_PZ_456  | DVG<1>  | N_PZ_523  | N_PZ_614  | N_PZ_552  | N_PZ_385  | DVG<0>  | N_PZ_513  | N_PZ_529  | N_PZ_627  | PAUSE
+INPUTMC | 10 | 6 | 0 | 0 | 5 | 6 | 1 | 4 | 10 | 4 | 6 | 0 | 8 | 0 | 2 | 3 | 4 | 3 | 3 | 0 | 7
+INPUTP | 1 | 5
+LCT | 1 | 4 | Internal_Name
+EQ | 10 | 
+   DVG<1>.T := N_PZ_456 & DVG<1> & N_PZ_523
+	# !DVG<1> & N_PZ_614 & N_PZ_552
+	# !N_PZ_385 & N_PZ_614 & !N_PZ_552
+	# N_PZ_523 & DVG<0> & N_PZ_513 & !N_PZ_529
+	# N_PZ_523 & DVG<0> & !N_PZ_513 & N_PZ_529
+	# !N_PZ_523 & !DVG<0> & N_PZ_627 & N_PZ_552
+	# !PAUSE & !N_PZ_523 & !DVG<0> & N_PZ_385 & 
+	!N_PZ_614;	// (7 pt, 11 inp)
+   DVG<1>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    DVG<1>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 6 | 1 | N_PZ_523_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 11 | 0 | 15 | 0 | 2 | 0 | 5 | 3 | 5 | 2 | 12 | 6 | 9 | 6 | 8 | 4 | 14 | 4 | 12 | 6 | 6 | 2 | 11
+INPUTS | 4 | UD  | PAUSE  | GIAYPHUT  | BTUP
+INPUTP | 4 | 3 | 5 | 4 | 90
+EQ | 2 | 
+   N_PZ_523 = UD & !PAUSE
+	# PAUSE & GIAYPHUT & BTUP;	// (2 pt, 4 inp)
+
+MACROCELL | 0 | 2 | DVG<0>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 18 | 4 | 10 | 0 | 15 | 6 | 12 | 0 | 2 | 0 | 5 | 0 | 12 | 5 | 10 | 6 | 13 | 2 | 12 | 2 | 7 | 4 | 7 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 10 | PAUSE  | N_PZ_456  | N_PZ_385  | N_PZ_523  | DVG<0>  | GIAYPHUT  | BTUP  | N_PZ_627  | BTDOWN  | DVP_cmp_eq0002
+INPUTMC | 6 | 6 | 0 | 0 | 8 | 6 | 1 | 0 | 2 | 0 | 7 | 6 | 12
+INPUTP | 4 | 5 | 4 | 90 | 95
+LCT | 1 | 4 | Internal_Name
+EQ | 9 | 
+   DVG<0>.T := !PAUSE & !N_PZ_456 & N_PZ_385
+	# N_PZ_456 & N_PZ_523 & DVG<0>
+	# PAUSE & GIAYPHUT & !N_PZ_456 & BTUP & N_PZ_627
+	# PAUSE & !GIAYPHUT & BTDOWN & DVG<0> & 
+	DVP_cmp_eq0002
+	# PAUSE & !GIAYPHUT & BTDOWN & !DVP_cmp_eq0002 & 
+	N_PZ_627;	// (5 pt, 10 inp)
+   DVG<0>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    DVG<0>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 6 | 12 | DVP_cmp_eq0002_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 10 | 4 | 10 | 0 | 2 | 2 | 12 | 6 | 9 | 4 | 15 | 4 | 14 | 4 | 12 | 6 | 7 | 6 | 6 | 4 | 11
+INPUTS | 5 | DVG<2>  | DVG<1>  | DVG<0>  | DVG<3>  | N_PZ_627
+INPUTMC | 5 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 15 | 0 | 7
+EQ | 2 | 
+   DVP_cmp_eq0002 = !DVG<2> & !DVG<1> & DVG<0> & !DVG<3> & N_PZ_627
+	# !DVG<2> & !DVG<1> & !DVG<0> & !DVG<3> & !N_PZ_627;	// (2 pt, 5 inp)
+
+MACROCELL | 0 | 15 | DVG<3>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 16 | 4 | 10 | 0 | 15 | 6 | 12 | 0 | 12 | 5 | 10 | 6 | 13 | 2 | 12 | 2 | 7 | 4 | 7 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 28 | N_PZ_614  | N_PZ_456  | N_PZ_523  | DVG<3>  | PAUSE  | DVG<2>  | DVG<1>  | DVG<0>  | N_PZ_627  | GIAYPHUT  | BTDOWN  | DVT<0>  | DVT<10>  | DVT<11>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>  | DVT<7>  | DVT<8>  | DVT<9>  | DVT<12>  | DVT<13>  | DVT<14>  | DVT<15>  | DVT<16>
+INPUTMC | 25 | 4 | 10 | 6 | 0 | 6 | 1 | 0 | 15 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 7 | 3 | 10 | 0 | 0 | 0 | 1 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14
+INPUTP | 3 | 5 | 4 | 95
+LCT | 1 | 4 | Internal_Name
+EQ | 17 | 
+   DVG<3>.T := N_PZ_614
+	# N_PZ_456 & N_PZ_523 & DVG<3>
+	# PAUSE & DVG<2> & DVG<1> & N_PZ_523 & DVG<0> & 
+	N_PZ_627
+	# PAUSE & !GIAYPHUT & BTDOWN & !DVG<2> & !DVG<1> & 
+	!DVG<0> & N_PZ_627
+	# !PAUSE & !DVG<2> & !DVG<1> & !N_PZ_523 & !DVG<0> & 
+	DVT<0> & DVT<10> & !DVT<11> & DVT<1> & DVT<2> & DVT<3> & 
+	DVT<4> & !DVT<5> & !DVT<6> & DVT<7> & !DVT<8> & DVT<9> & 
+	!DVT<12> & !DVT<13> & !DVT<14> & DVT<15> & DVT<16>
+	# !PAUSE & !N_PZ_456 & DVG<2> & DVG<1> & N_PZ_523 & 
+	DVG<0> & DVT<0> & DVT<10> & !DVT<11> & DVT<1> & DVT<2> & 
+	DVT<3> & DVT<4> & !DVT<5> & !DVT<6> & DVT<7> & !DVT<8> & 
+	DVT<9> & !DVT<12> & !DVT<13> & !DVT<14> & DVT<15> & 
+	DVT<16>;	// (6 pt, 28 inp)
+   DVG<3>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    DVG<3>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 7 | N_PZ_627_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 8 | 3 | 3 | 3 | 2 | 0 | 15 | 6 | 12 | 0 | 2 | 0 | 5 | 0 | 12 | 6 | 13
+INPUTS | 17 | DVT<0>  | DVT<10>  | DVT<11>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>  | DVT<7>  | DVT<8>  | DVT<9>  | DVT<12>  | DVT<13>  | DVT<14>  | DVT<15>  | DVT<16>
+INPUTMC | 17 | 3 | 10 | 0 | 0 | 0 | 1 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14
+EQ | 4 | 
+   N_PZ_627 = DVT<0> & DVT<10> & !DVT<11> & DVT<1> & DVT<2> & 
+	DVT<3> & !DVT<4> & !DVT<5> & !DVT<6> & !DVT<7> & DVT<8> & 
+	DVT<9> & !DVT<12> & DVT<13> & !DVT<14> & !DVT<15> & 
+	!DVT<16>;	// (1 pt, 17 inp)
+
+MACROCELL | 3 | 10 | DVT<0>_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 20 | 3 | 10 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 0 | 0 | 7 | 0 | 15
+INPUTS | 3 | DVT<0>  | N_PZ_339  | N_PZ_456
+INPUTMC | 3 | 3 | 10 | 6 | 3 | 6 | 0
+EQ | 3 | 
+   DVT<0> := DVT<0> & N_PZ_339
+	# !N_PZ_456 & !DVT<0> & !N_PZ_339;	// (2 pt, 3 inp)
+   DVT<0>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 6 | 3 | N_PZ_339_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 17 | 3 | 10 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 0
+INPUTS | 5 | CLR  | PAUSE  | GIAYPHUT  | BTUP  | BTDOWN
+INPUTP | 5 | 1 | 5 | 4 | 90 | 95
+EQ | 3 | 
+   N_PZ_339 = CLR
+	# PAUSE & GIAYPHUT & !BTUP
+	# PAUSE & !GIAYPHUT & !BTDOWN;	// (3 pt, 5 inp)
+
+MACROCELL | 0 | 0 | DVT<10>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 10 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 0 | 0 | 7 | 0 | 15
+INPUTS | 13 | N_PZ_339  | DVT<10>  | DVT_mux0005<7>12  | DVT<0>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>  | DVT<7>  | DVT<8>  | DVT<9>
+INPUTMC | 13 | 6 | 3 | 0 | 0 | 3 | 2 | 3 | 10 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13
+EQ | 5 | 
+   DVT<10>.T := !N_PZ_339 & DVT<10> & DVT_mux0005<7>12
+	# DVT<0> & !N_PZ_339 & !DVT_mux0005<7>12 & DVT<1> & 
+	DVT<2> & DVT<3> & DVT<4> & DVT<5> & DVT<6> & DVT<7> & 
+	DVT<8> & DVT<9>;	// (2 pt, 13 inp)
+   DVT<10>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 3 | 2 | DVT_mux0005<7>12_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 2 | 0 | 13 | 0 | 0
+INPUTS | 5 | N_PZ_513  | PAUSE  | N_PZ_627  | UD  | CHG_cmp_eq0001
+INPUTMC | 3 | 3 | 4 | 0 | 7 | 5 | 10
+INPUTP | 2 | 5 | 3
+EQ | 3 | 
+   DVT_mux0005<7>12 = N_PZ_513
+	# PAUSE & N_PZ_627
+	# UD & CHG_cmp_eq0001 & N_PZ_627;	// (3 pt, 5 inp)
+
+MACROCELL | 3 | 4 | N_PZ_513_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 7 | 3 | 13 | 0 | 3 | 0 | 10 | 0 | 14 | 3 | 2 | 0 | 5 | 0 | 12
+INPUTS | 3 | N_PZ_456  | PAUSE  | N_PZ_385
+INPUTMC | 2 | 6 | 0 | 0 | 8
+INPUTP | 1 | 5
+EQ | 2 | 
+   N_PZ_513 = N_PZ_456
+	# !PAUSE & N_PZ_385;	// (2 pt, 3 inp)
+
+MACROCELL | 0 | 8 | N_PZ_385_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 5 | 3 | 4 | 0 | 2 | 0 | 5 | 0 | 12 | 5 | 10
+INPUTS | 17 | DVT<0>  | DVT<10>  | DVT<11>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>  | DVT<7>  | DVT<8>  | DVT<9>  | DVT<12>  | DVT<13>  | DVT<14>  | DVT<15>  | DVT<16>
+INPUTMC | 17 | 3 | 10 | 0 | 0 | 0 | 1 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14
+EQ | 4 | 
+   N_PZ_385 = DVT<0> & DVT<10> & !DVT<11> & DVT<1> & DVT<2> & 
+	DVT<3> & DVT<4> & !DVT<5> & !DVT<6> & DVT<7> & !DVT<8> & 
+	DVT<9> & !DVT<12> & !DVT<13> & !DVT<14> & DVT<15> & 
+	DVT<16>;	// (1 pt, 17 inp)
+
+MACROCELL | 0 | 1 | DVT<11>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 9 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 7 | 0 | 15
+INPUTS | 14 | N_PZ_456  | N_PZ_339  | DVT<11>  | DVT<0>  | DVT<10>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>  | DVT<7>  | DVT<8>  | DVT<9>
+INPUTMC | 14 | 6 | 0 | 6 | 3 | 0 | 1 | 3 | 10 | 0 | 0 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13
+EQ | 5 | 
+   DVT<11>.T := N_PZ_456 & !N_PZ_339 & DVT<11>
+	# !N_PZ_456 & DVT<0> & !N_PZ_339 & DVT<10> & 
+	DVT<1> & DVT<2> & DVT<3> & DVT<4> & DVT<5> & DVT<6> & 
+	DVT<7> & DVT<8> & DVT<9>;	// (2 pt, 14 inp)
+   DVT<11>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 3 | 9 | DVT<1>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 19 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 0 | 0 | 7 | 0 | 15
+INPUTS | 4 | N_PZ_456  | N_PZ_339  | DVT<1>  | DVT<0>
+INPUTMC | 4 | 6 | 0 | 6 | 3 | 3 | 9 | 3 | 10
+EQ | 3 | 
+   DVT<1>.T := N_PZ_456 & !N_PZ_339 & DVT<1>
+	# !N_PZ_456 & DVT<0> & !N_PZ_339;	// (2 pt, 4 inp)
+   DVT<1>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 3 | 8 | DVT<2>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 18 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 0 | 0 | 7 | 0 | 15
+INPUTS | 5 | N_PZ_456  | N_PZ_339  | DVT<2>  | DVT<0>  | DVT<1>
+INPUTMC | 5 | 6 | 0 | 6 | 3 | 3 | 8 | 3 | 10 | 3 | 9
+EQ | 3 | 
+   DVT<2>.T := N_PZ_456 & !N_PZ_339 & DVT<2>
+	# !N_PZ_456 & DVT<0> & !N_PZ_339 & DVT<1>;	// (2 pt, 5 inp)
+   DVT<2>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 3 | 7 | DVT<3>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 17 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 0 | 0 | 7 | 0 | 15
+INPUTS | 6 | N_PZ_456  | N_PZ_339  | DVT<3>  | DVT<0>  | DVT<1>  | DVT<2>
+INPUTMC | 6 | 6 | 0 | 6 | 3 | 3 | 7 | 3 | 10 | 3 | 9 | 3 | 8
+EQ | 3 | 
+   DVT<3>.T := N_PZ_456 & !N_PZ_339 & DVT<3>
+	# !N_PZ_456 & DVT<0> & !N_PZ_339 & DVT<1> & DVT<2>;	// (2 pt, 6 inp)
+   DVT<3>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 3 | 11 | DVT<4>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 16 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 0 | 0 | 7 | 0 | 15
+INPUTS | 7 | N_PZ_339  | DVT<4>  | N_PZ_529  | DVT<0>  | DVT<1>  | DVT<2>  | DVT<3>
+INPUTMC | 7 | 6 | 3 | 3 | 11 | 3 | 3 | 3 | 10 | 3 | 9 | 3 | 8 | 3 | 7
+EQ | 4 | 
+   DVT<4>.T := !N_PZ_339 & DVT<4> & N_PZ_529
+	# DVT<0> & !N_PZ_339 & DVT<1> & DVT<2> & DVT<3> & 
+	!N_PZ_529;	// (2 pt, 7 inp)
+   DVT<4>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 3 | 3 | N_PZ_529_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 5 | 3 | 11 | 0 | 11 | 0 | 4 | 0 | 5 | 0 | 12
+INPUTS | 3 | N_PZ_456  | PAUSE  | N_PZ_627
+INPUTMC | 2 | 6 | 0 | 0 | 7
+INPUTP | 1 | 5
+EQ | 2 | 
+   N_PZ_529 = N_PZ_456
+	# PAUSE & N_PZ_627;	// (2 pt, 3 inp)
+
+MACROCELL | 3 | 13 | DVT<5>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 15 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 0 | 0 | 7 | 0 | 15
+INPUTS | 8 | N_PZ_339  | N_PZ_513  | DVT<5>  | DVT<0>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>
+INPUTMC | 8 | 6 | 3 | 3 | 4 | 3 | 13 | 3 | 10 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11
+EQ | 4 | 
+   DVT<5>.T := !N_PZ_339 & N_PZ_513 & DVT<5>
+	# DVT<0> & !N_PZ_339 & !N_PZ_513 & DVT<1> & DVT<2> & 
+	DVT<3> & DVT<4>;	// (2 pt, 8 inp)
+   DVT<5>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 3 | 6 | DVT<6>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 14 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 0 | 0 | 7 | 0 | 15
+INPUTS | 9 | N_PZ_456  | N_PZ_339  | DVT<6>  | DVT<0>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>
+INPUTMC | 9 | 6 | 0 | 6 | 3 | 3 | 6 | 3 | 10 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13
+EQ | 4 | 
+   DVT<6>.T := N_PZ_456 & !N_PZ_339 & DVT<6>
+	# !N_PZ_456 & DVT<0> & !N_PZ_339 & DVT<1> & DVT<2> & 
+	DVT<3> & DVT<4> & DVT<5>;	// (2 pt, 9 inp)
+   DVT<6>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 3 | DVT<7>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 13 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 0 | 0 | 7 | 0 | 15
+INPUTS | 10 | N_PZ_339  | N_PZ_513  | DVT<7>  | DVT<0>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>
+INPUTMC | 10 | 6 | 3 | 3 | 4 | 0 | 3 | 3 | 10 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6
+EQ | 4 | 
+   DVT<7>.T := !N_PZ_339 & N_PZ_513 & DVT<7>
+	# DVT<0> & !N_PZ_339 & !N_PZ_513 & DVT<1> & DVT<2> & 
+	DVT<3> & DVT<4> & DVT<5> & DVT<6>;	// (2 pt, 10 inp)
+   DVT<7>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 11 | DVT<8>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 12 | 0 | 11 | 0 | 13 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 0 | 0 | 7 | 0 | 15
+INPUTS | 11 | N_PZ_339  | N_PZ_529  | DVT<8>  | DVT<0>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>  | DVT<7>
+INPUTMC | 11 | 6 | 3 | 3 | 3 | 0 | 11 | 3 | 10 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3
+EQ | 4 | 
+   DVT<8>.T := !N_PZ_339 & N_PZ_529 & DVT<8>
+	# DVT<0> & !N_PZ_339 & DVT<1> & DVT<2> & DVT<3> & 
+	DVT<4> & !N_PZ_529 & DVT<5> & DVT<6> & DVT<7>;	// (2 pt, 11 inp)
+   DVT<8>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 13 | DVT<9>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 11 | 0 | 13 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 0 | 0 | 7 | 0 | 15
+INPUTS | 12 | N_PZ_339  | DVT_mux0005<7>12  | DVT<9>  | DVT<0>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>  | DVT<7>  | DVT<8>
+INPUTMC | 12 | 6 | 3 | 3 | 2 | 0 | 13 | 3 | 10 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11
+EQ | 5 | 
+   DVT<9>.T := !N_PZ_339 & DVT_mux0005<7>12 & DVT<9>
+	# DVT<0> & !N_PZ_339 & !DVT_mux0005<7>12 & DVT<1> & 
+	DVT<2> & DVT<3> & DVT<4> & DVT<5> & DVT<6> & DVT<7> & 
+	DVT<8>;	// (2 pt, 12 inp)
+   DVT<9>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 6 | DVT<12>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 8 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 7 | 0 | 15
+INPUTS | 15 | N_PZ_456  | N_PZ_339  | DVT<12>  | DVT<0>  | DVT<10>  | DVT<11>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>  | DVT<7>  | DVT<8>  | DVT<9>
+INPUTMC | 15 | 6 | 0 | 6 | 3 | 0 | 6 | 3 | 10 | 0 | 0 | 0 | 1 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13
+EQ | 5 | 
+   DVT<12>.T := N_PZ_456 & !N_PZ_339 & DVT<12>
+	# !N_PZ_456 & DVT<0> & !N_PZ_339 & DVT<10> & 
+	DVT<11> & DVT<1> & DVT<2> & DVT<3> & DVT<4> & DVT<5> & 
+	DVT<6> & DVT<7> & DVT<8> & DVT<9>;	// (2 pt, 15 inp)
+   DVT<12>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 4 | DVT<13>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 7 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 7 | 0 | 15
+INPUTS | 16 | N_PZ_339  | N_PZ_529  | DVT<13>  | DVT<0>  | DVT<10>  | DVT<11>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>  | DVT<7>  | DVT<8>  | DVT<9>  | DVT<12>
+INPUTMC | 16 | 6 | 3 | 3 | 3 | 0 | 4 | 3 | 10 | 0 | 0 | 0 | 1 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 6
+EQ | 5 | 
+   DVT<13>.T := !N_PZ_339 & N_PZ_529 & DVT<13>
+	# DVT<0> & !N_PZ_339 & DVT<10> & DVT<11> & DVT<1> & 
+	DVT<2> & DVT<3> & DVT<4> & !N_PZ_529 & DVT<5> & DVT<6> & 
+	DVT<7> & DVT<8> & DVT<9> & DVT<12>;	// (2 pt, 16 inp)
+   DVT<13>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 9 | DVT<14>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 6 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 7 | 0 | 15
+INPUTS | 17 | N_PZ_456  | N_PZ_339  | DVT<14>  | DVT<0>  | DVT<10>  | DVT<11>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>  | DVT<7>  | DVT<8>  | DVT<9>  | DVT<12>  | DVT<13>
+INPUTMC | 17 | 6 | 0 | 6 | 3 | 0 | 9 | 3 | 10 | 0 | 0 | 0 | 1 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 6 | 0 | 4
+EQ | 5 | 
+   DVT<14>.T := N_PZ_456 & !N_PZ_339 & DVT<14>
+	# !N_PZ_456 & DVT<0> & !N_PZ_339 & DVT<10> & 
+	DVT<11> & DVT<1> & DVT<2> & DVT<3> & DVT<4> & DVT<5> & 
+	DVT<6> & DVT<7> & DVT<8> & DVT<9> & DVT<12> & DVT<13>;	// (2 pt, 17 inp)
+   DVT<14>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 10 | DVT<15>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 5 | 0 | 10 | 0 | 14 | 0 | 8 | 0 | 7 | 0 | 15
+INPUTS | 18 | N_PZ_339  | N_PZ_513  | DVT<15>  | DVT<0>  | DVT<10>  | DVT<11>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>  | DVT<7>  | DVT<8>  | DVT<9>  | DVT<12>  | DVT<13>  | DVT<14>
+INPUTMC | 18 | 6 | 3 | 3 | 4 | 0 | 10 | 3 | 10 | 0 | 0 | 0 | 1 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 6 | 0 | 4 | 0 | 9
+EQ | 6 | 
+   DVT<15>.T := !N_PZ_339 & N_PZ_513 & DVT<15>
+	# DVT<0> & !N_PZ_339 & DVT<10> & !N_PZ_513 & 
+	DVT<11> & DVT<1> & DVT<2> & DVT<3> & DVT<4> & DVT<5> & 
+	DVT<6> & DVT<7> & DVT<8> & DVT<9> & DVT<12> & DVT<13> & 
+	DVT<14>;	// (2 pt, 18 inp)
+   DVT<15>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 0 | 14 | DVT<16>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 4 | 0 | 14 | 0 | 8 | 0 | 7 | 0 | 15
+INPUTS | 19 | N_PZ_339  | N_PZ_513  | DVT<16>  | DVT<0>  | DVT<10>  | DVT<11>  | DVT<1>  | DVT<2>  | DVT<3>  | DVT<4>  | DVT<5>  | DVT<6>  | DVT<7>  | DVT<8>  | DVT<9>  | DVT<12>  | DVT<13>  | DVT<14>  | DVT<15>
+INPUTMC | 19 | 6 | 3 | 3 | 4 | 0 | 14 | 3 | 10 | 0 | 0 | 0 | 1 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10
+EQ | 6 | 
+   DVT<16>.T := !N_PZ_339 & N_PZ_513 & DVT<16>
+	# DVT<0> & !N_PZ_339 & DVT<10> & !N_PZ_513 & 
+	DVT<11> & DVT<1> & DVT<2> & DVT<3> & DVT<4> & DVT<5> & 
+	DVT<6> & DVT<7> & DVT<8> & DVT<9> & DVT<12> & DVT<13> & 
+	DVT<14> & DVT<15>;	// (2 pt, 19 inp)
+   DVT<16>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 4 | 10 | N_PZ_614_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 5 | 0 | 15 | 0 | 5 | 3 | 5 | 6 | 9 | 6 | 8
+INPUTS | 9 | PAUSE  | GIAYPHUT  | BTDOWN  | DVP_cmp_eq0002  | UD  | DVG<2>  | DVG<1>  | DVG<0>  | DVG<3>
+INPUTMC | 5 | 6 | 12 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 15
+INPUTP | 4 | 5 | 4 | 95 | 3
+EQ | 3 | 
+   N_PZ_614 = PAUSE & !GIAYPHUT & BTDOWN & DVP_cmp_eq0002
+	# !UD & !PAUSE & !DVG<2> & !DVG<1> & !DVG<0> & 
+	!DVG<3>;	// (2 pt, 9 inp)
+
+MACROCELL | 4 | 6 | N_PZ_552_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 6 | 0 | 5 | 6 | 8 | 4 | 14 | 4 | 12 | 2 | 8 | 2 | 9
+INPUTS | 4 | UD  | PAUSE  | GIAYPHUT  | BTDOWN
+INPUTP | 4 | 3 | 5 | 4 | 95
+EQ | 2 | 
+   N_PZ_552 = UD & !PAUSE & !GIAYPHUT
+	# PAUSE & !GIAYPHUT & BTDOWN;	// (2 pt, 4 inp)
+
+MACROCELL | 6 | 13 | CHG_cmp_eq0002_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 2 | 6 | 0 | 6 | 14
+INPUTS | 5 | DVG<2>  | DVG<1>  | DVG<0>  | DVG<3>  | N_PZ_627
+INPUTMC | 5 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 15 | 0 | 7
+EQ | 2 | 
+   CHG_cmp_eq0002 = !DVG<2> & DVG<1> & !DVG<0> & DVG<3> & !N_PZ_627
+	# !DVG<2> & !DVG<1> & DVG<0> & DVG<3> & N_PZ_627;	// (2 pt, 5 inp)
+
+MACROCELL | 6 | 8 | CHG<1>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 19 | 2 | 12 | 6 | 14 | 6 | 9 | 2 | 7 | 6 | 8 | 6 | 15 | 4 | 15 | 4 | 14 | 4 | 12 | 6 | 7 | 6 | 6 | 4 | 11 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 12 | CHG<0>  | N_PZ_614  | N_PZ_453  | CHG<1>  | PAUSE  | N_PZ_456  | N_PZ_489  | BTUP  | N_PZ_523  | N_PZ_552  | CHG<3>  | UD
+INPUTMC | 9 | 3 | 5 | 4 | 10 | 2 | 7 | 6 | 8 | 6 | 0 | 4 | 2 | 6 | 1 | 4 | 6 | 2 | 12
+INPUTP | 3 | 5 | 90 | 3
+LCT | 1 | 4 | Internal_Name
+EQ | 16 | 
+   CHG<1>.T := !CHG<0> & N_PZ_614 & !N_PZ_453
+	# !CHG<0> & CHG<1> & N_PZ_453
+	# !PAUSE & CHG<0> & N_PZ_456 & CHG<1>
+	# !PAUSE & CHG<0> & N_PZ_456 & !N_PZ_489
+	# CHG<0> & N_PZ_456 & BTUP & CHG<1>
+	# CHG<0> & N_PZ_456 & BTUP & !N_PZ_489
+	# !CHG<0> & !N_PZ_456 & N_PZ_523 & CHG<1> & 
+	N_PZ_489
+	# PAUSE & !CHG<0> & N_PZ_552 & !CHG<1> & !N_PZ_489 & 
+	!CHG<3>
+	# CHG<0> & N_PZ_614 & N_PZ_552 & !CHG<1> & 
+	!N_PZ_489 & !CHG<3>
+	# !UD & !PAUSE & !CHG<0> & !N_PZ_614 & !CHG<1> & 
+	!N_PZ_489 & !CHG<3>;	// (10 pt, 12 inp)
+   CHG<1>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    CHG<1>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 4 | 2 | N_PZ_489_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 15 | 6 | 9 | 2 | 7 | 6 | 8 | 4 | 15 | 4 | 14 | 4 | 8 | 4 | 12 | 4 | 9 | 6 | 7 | 6 | 6 | 4 | 11 | 4 | 1 | 5 | 0 | 5 | 11 | 5 | 13
+INPUTS | 2 | CHG<2>  | CHG<3>
+INPUTMC | 2 | 6 | 9 | 2 | 12
+EQ | 1 | 
+   N_PZ_489 = CHG<2> & !CHG<3>;	// (1 pt, 2 inp)
+
+MACROCELL | 6 | 9 | CHG<2>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 10 | 2 | 12 | 6 | 9 | 4 | 2 | 2 | 7 | 4 | 1 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 16 | CHG<0>  | N_PZ_614  | CHG<1>  | N_PZ_456  | N_PZ_523  | UD  | PAUSE  | CHG_cmp_eq0001  | N_PZ_489  | GIAYPHUT  | BTUP  | N_PZ_501  | CHG<2>  | CHG<3>  | BTDOWN  | DVP_cmp_eq0002
+INPUTMC | 11 | 3 | 5 | 4 | 10 | 6 | 8 | 6 | 0 | 6 | 1 | 5 | 10 | 4 | 2 | 6 | 14 | 6 | 9 | 2 | 12 | 6 | 12
+INPUTP | 5 | 3 | 5 | 4 | 90 | 95
+LCT | 1 | 4 | Internal_Name
+EQ | 15 | 
+   CHG<2>.T := !CHG<0> & N_PZ_614 & !CHG<1>
+	# CHG<0> & N_PZ_456 & N_PZ_523 & CHG<1>
+	# UD & !PAUSE & CHG<0> & CHG_cmp_eq0001 & 
+	N_PZ_489
+	# PAUSE & GIAYPHUT & BTUP & N_PZ_489 & N_PZ_501
+	# UD & !PAUSE & !CHG<0> & !CHG_cmp_eq0001 & CHG<1> & 
+	N_PZ_489
+	# !UD & !PAUSE & !CHG<0> & !CHG<1> & !CHG<2> & 
+	!CHG<3>
+	# PAUSE & !GIAYPHUT & BTDOWN & !CHG<0> & !CHG<1> & 
+	!CHG<2> & !CHG<3>
+	# PAUSE & !GIAYPHUT & BTDOWN & DVP_cmp_eq0002 & 
+	!CHG<1> & !CHG<2> & !CHG<3>;	// (8 pt, 16 inp)
+   CHG<2>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    CHG<2>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 2 | 12 | CHG<3>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 11 | 2 | 12 | 6 | 9 | 4 | 2 | 2 | 7 | 6 | 8 | 4 | 1 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 15 | CHG<0>  | N_PZ_456  | N_PZ_523  | CHG<1>  | CHG<2>  | PAUSE  | GIAYPHUT  | BTDOWN  | DVP_cmp_eq0002  | UD  | DVG<2>  | DVG<1>  | DVG<0>  | DVG<3>  | CHG<3>
+INPUTMC | 11 | 3 | 5 | 6 | 0 | 6 | 1 | 6 | 8 | 6 | 9 | 6 | 12 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 15 | 2 | 12
+INPUTP | 4 | 5 | 4 | 95 | 3
+LCT | 1 | 4 | Internal_Name
+EQ | 7 | 
+   CHG<3>.T := CHG<0> & N_PZ_456 & N_PZ_523 & CHG<1> & CHG<2>
+	# PAUSE & !GIAYPHUT & BTDOWN & !CHG<0> & 
+	DVP_cmp_eq0002 & !CHG<1> & !CHG<2>
+	# !UD & !PAUSE & !CHG<0> & !DVG<2> & !DVG<1> & 
+	!DVG<0> & !DVG<3> & !CHG<1> & !CHG<2> & CHG<3>;	// (3 pt, 15 inp)
+   CHG<3>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    CHG<3>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 6 | 14 | N_PZ_501_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 5 | 6 | 9 | 4 | 14 | 4 | 8 | 4 | 12 | 6 | 7
+INPUTS | 3 | CHG<0>  | CHG_cmp_eq0002  | CHG<1>
+INPUTMC | 3 | 3 | 5 | 6 | 13 | 6 | 8
+EQ | 2 | 
+   N_PZ_501 = CHG<0> & CHG_cmp_eq0002 & !CHG<1>
+	# !CHG<0> & !CHG_cmp_eq0002 & CHG<1>;	// (2 pt, 3 inp)
+
+MACROCELL | 2 | 7 | N_PZ_453_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 5 | 6 | 8 | 4 | 14 | 4 | 12 | 6 | 7 | 6 | 6
+INPUTS | 11 | UD  | PAUSE  | CHG<0>  | DVG<2>  | DVG<1>  | DVG<0>  | DVG<3>  | CHG<1>  | N_PZ_489  | CHG<2>  | CHG<3>
+INPUTMC | 9 | 3 | 5 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 15 | 6 | 8 | 4 | 2 | 6 | 9 | 2 | 12
+INPUTP | 2 | 3 | 5
+EQ | 4 | 
+   N_PZ_453 = !UD & !PAUSE & !CHG<0> & !DVG<2> & !DVG<1> & 
+	!DVG<0> & !DVG<3> & CHG<1> & N_PZ_489
+	# !UD & !PAUSE & !CHG<0> & !DVG<2> & !DVG<1> & 
+	!DVG<0> & !DVG<3> & !CHG<1> & !CHG<2> & !CHG<3>;	// (2 pt, 11 inp)
+
+MACROCELL | 6 | 7 | DVP<0>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 19 | 4 | 15 | 4 | 14 | 4 | 8 | 4 | 12 | 4 | 9 | 6 | 7 | 6 | 6 | 4 | 11 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 14 | N_PZ_453  | UD  | PAUSE  | DVP<0>  | CHP_cmp_eq0001  | N_PZ_489  | N_PZ_499  | GIAYPHUT  | BTUP  | N_PZ_501  | BTDOWN  | CHG<0>  | DVP_cmp_eq0002  | CHG<1>
+INPUTMC | 9 | 2 | 7 | 6 | 7 | 4 | 9 | 4 | 2 | 6 | 15 | 6 | 14 | 3 | 5 | 6 | 12 | 6 | 8
+INPUTP | 5 | 3 | 5 | 4 | 90 | 95
+LCT | 1 | 4 | Internal_Name
+EQ | 9 | 
+   DVP<0>.T := N_PZ_453
+	# UD & !PAUSE & DVP<0> & CHP_cmp_eq0001
+	# UD & !PAUSE & N_PZ_489 & !CHP_cmp_eq0001 & 
+	N_PZ_499
+	# PAUSE & GIAYPHUT & BTUP & N_PZ_489 & N_PZ_501
+	# PAUSE & !GIAYPHUT & BTDOWN & !CHG<0> & 
+	DVP_cmp_eq0002 & CHG<1> & N_PZ_489;	// (5 pt, 14 inp)
+   DVP<0>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    DVP<0>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 4 | 9 | CHP_cmp_eq0001_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 7 | 4 | 14 | 4 | 12 | 6 | 7 | 6 | 2 | 2 | 10 | 2 | 9 | 2 | 11
+INPUTS | 6 | DVP<2>  | N_PZ_489  | DVP<0>  | DVP<1>  | DVP<3>  | N_PZ_499
+INPUTMC | 6 | 6 | 6 | 4 | 2 | 6 | 7 | 4 | 12 | 4 | 14 | 6 | 15
+EQ | 4 | 
+   CHP_cmp_eq0001 = !DVP<2> & !N_PZ_489 & !DVP<0> & DVP<1> & DVP<3>
+	# !DVP<2> & !DVP<0> & DVP<1> & DVP<3> & !N_PZ_499
+	# !DVP<2> & N_PZ_489 & DVP<0> & !DVP<1> & DVP<3> & 
+	N_PZ_499;	// (3 pt, 6 inp)
+
+MACROCELL | 4 | 12 | DVP<1>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 17 | 4 | 15 | 4 | 14 | 4 | 8 | 4 | 12 | 4 | 9 | 6 | 6 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 15 | N_PZ_523  | N_PZ_552  | N_PZ_571  | N_PZ_453  | DVP<0>  | PAUSE  | DVP<1>  | N_PZ_555  | CHP_cmp_eq0001  | N_PZ_489  | N_PZ_501  | N_PZ_499  | CHG<0>  | DVP_cmp_eq0002  | CHG<1>
+INPUTMC | 14 | 6 | 1 | 4 | 6 | 4 | 15 | 2 | 7 | 6 | 7 | 4 | 12 | 4 | 8 | 4 | 9 | 4 | 2 | 6 | 14 | 6 | 15 | 3 | 5 | 6 | 12 | 6 | 8
+INPUTP | 1 | 5
+LCT | 1 | 4 | Internal_Name
+EQ | 14 | 
+   DVP<1>.T := !N_PZ_523 & N_PZ_552 & N_PZ_571
+	# N_PZ_453 & !DVP<0> & !N_PZ_571
+	# PAUSE & N_PZ_523 & DVP<1> & N_PZ_555
+	# !PAUSE & N_PZ_523 & CHP_cmp_eq0001 & DVP<1>
+	# !PAUSE & !N_PZ_523 & !N_PZ_453 & !DVP<0> & 
+	N_PZ_571
+	# PAUSE & N_PZ_523 & N_PZ_489 & N_PZ_501 & 
+	DVP<0> & !N_PZ_555
+	# !PAUSE & N_PZ_523 & N_PZ_489 & DVP<0> & 
+	!CHP_cmp_eq0001 & N_PZ_499
+	# !CHG<0> & !N_PZ_523 & DVP_cmp_eq0002 & N_PZ_552 & 
+	CHG<1> & N_PZ_489 & !DVP<0>;	// (8 pt, 15 inp)
+   DVP<1>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    DVP<1>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 4 | 8 | N_PZ_555_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 4 | 4 | 14 | 4 | 12 | 4 | 11 | 6 | 2
+INPUTS | 6 | DVP<2>  | N_PZ_489  | DVP<0>  | DVP<1>  | DVP<3>  | N_PZ_501
+INPUTMC | 6 | 6 | 6 | 4 | 2 | 6 | 7 | 4 | 12 | 4 | 14 | 6 | 14
+EQ | 4 | 
+   N_PZ_555 = !DVP<2> & !N_PZ_489 & !DVP<0> & DVP<1> & DVP<3>
+	# !DVP<2> & !N_PZ_501 & !DVP<0> & DVP<1> & DVP<3>
+	# !DVP<2> & N_PZ_489 & N_PZ_501 & DVP<0> & !DVP<1> & 
+	DVP<3>;	// (3 pt, 6 inp)
+
+MACROCELL | 4 | 14 | DVP<3>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 14 | 4 | 15 | 4 | 8 | 4 | 9 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 16 | PAUSE  | N_PZ_523  | N_PZ_555  | CHP_cmp_eq0001  | N_PZ_552  | N_PZ_571  | DVP<0>  | DVP<2>  | N_PZ_453  | DVP<1>  | N_PZ_489  | N_PZ_501  | N_PZ_499  | CHG<0>  | DVP_cmp_eq0002  | CHG<1>
+INPUTMC | 15 | 6 | 1 | 4 | 8 | 4 | 9 | 4 | 6 | 4 | 15 | 6 | 7 | 6 | 6 | 2 | 7 | 4 | 12 | 4 | 2 | 6 | 14 | 6 | 15 | 3 | 5 | 6 | 12 | 6 | 8
+INPUTP | 1 | 5
+LCT | 1 | 4 | Internal_Name
+EQ | 13 | 
+   DVP<3>.T := PAUSE & N_PZ_523 & N_PZ_555
+	# !PAUSE & N_PZ_523 & CHP_cmp_eq0001
+	# !N_PZ_523 & N_PZ_552 & N_PZ_571
+	# !PAUSE & !N_PZ_523 & !DVP<0> & N_PZ_571
+	# !DVP<2> & N_PZ_453 & !DVP<0> & !DVP<1>
+	# PAUSE & DVP<2> & N_PZ_523 & N_PZ_489 & 
+	N_PZ_501 & DVP<0> & DVP<1>
+	# !PAUSE & DVP<2> & N_PZ_523 & N_PZ_489 & DVP<0> & 
+	DVP<1> & N_PZ_499
+	# !DVP<2> & !CHG<0> & !N_PZ_523 & DVP_cmp_eq0002 & 
+	N_PZ_552 & CHG<1> & N_PZ_489 & !DVP<0> & !DVP<1>;	// (8 pt, 16 inp)
+   DVP<3>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    DVP<3>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 6 | 15 | N_PZ_499_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 4 | 4 | 14 | 4 | 12 | 4 | 9 | 6 | 7
+INPUTS | 3 | CHG<0>  | CHG_cmp_eq0001  | CHG<1>
+INPUTMC | 3 | 3 | 5 | 5 | 10 | 6 | 8
+EQ | 2 | 
+   N_PZ_499 = CHG<0> & CHG_cmp_eq0001 & !CHG<1>
+	# !CHG<0> & !CHG_cmp_eq0001 & CHG<1>;	// (2 pt, 3 inp)
+
+MACROCELL | 4 | 15 | N_PZ_571_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 4 | 4 | 14 | 4 | 12 | 6 | 6 | 4 | 11
+INPUTS | 8 | DVP<2>  | DVP<0>  | DVP<1>  | DVP<3>  | CHG<0>  | DVP_cmp_eq0002  | CHG<1>  | N_PZ_489
+INPUTMC | 8 | 6 | 6 | 6 | 7 | 4 | 12 | 4 | 14 | 3 | 5 | 6 | 12 | 6 | 8 | 4 | 2
+EQ | 3 | 
+   N_PZ_571 = !DVP<2> & !DVP<0> & !DVP<1> & !DVP<3>
+	# !DVP<2> & !CHG<0> & DVP_cmp_eq0002 & CHG<1> & 
+	N_PZ_489 & !DVP<1> & !DVP<3>;	// (2 pt, 8 inp)
+
+MACROCELL | 4 | 11 | CHP_mux0007<3>15_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 4 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11
+INPUTS | 10 | CHP<0>  | PAUSE  | GIAYPHUT  | N_PZ_555  | N_PZ_571  | CHG<0>  | DVP_cmp_eq0002  | CHG<1>  | N_PZ_489  | DVP<0>
+INPUTMC | 8 | 2 | 11 | 4 | 8 | 4 | 15 | 3 | 5 | 6 | 12 | 6 | 8 | 4 | 2 | 6 | 7
+INPUTP | 2 | 5 | 4
+EQ | 7 | 
+   CHP_mux0007<3>15 = !CHP<0> & PAUSE
+	$ PAUSE & GIAYPHUT & !N_PZ_555
+	# PAUSE & !GIAYPHUT & !N_PZ_571
+	# PAUSE & !GIAYPHUT & !CHG<0> & DVP_cmp_eq0002 & 
+	CHG<1> & N_PZ_489 & !DVP<0>
+	# CHP<0> & PAUSE & !CHG<0> & DVP_cmp_eq0002 & 
+	CHG<1> & N_PZ_489 & !DVP<0> & N_PZ_571;	// (5 pt, 10 inp)
+
+MACROCELL | 2 | 9 | CHP<2>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 11 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 17 | CHP<1>  | N_PZ_454  | CHP<2>  | CHP<3>  | CHP<0>  | N_PZ_552  | CHP_mux0007<3>15  | UD  | PAUSE  | CHP_cmp_eq0001  | GIAYPHUT  | BTUP  | BTDOWN  | DVP<2>  | DVP<0>  | DVP<1>  | DVP<3>
+INPUTMC | 12 | 2 | 10 | 6 | 2 | 2 | 9 | 2 | 8 | 2 | 11 | 4 | 6 | 4 | 11 | 4 | 9 | 6 | 6 | 6 | 7 | 4 | 12 | 4 | 14
+INPUTP | 5 | 3 | 5 | 4 | 90 | 95
+LCT | 1 | 4 | Internal_Name
+EQ | 15 | 
+   CHP<2>.T := CHP<1> & N_PZ_454
+	# CHP<2> & !CHP<3> & N_PZ_454
+	# !CHP<0> & N_PZ_552 & CHP_mux0007<3>15 & !CHP<1>
+	# !CHP<0> & !UD & !PAUSE & !CHP<2> & !CHP<1> & 
+	!CHP<3>
+	# !CHP<0> & UD & !PAUSE & !CHP_cmp_eq0001 & CHP<2> & 
+	CHP<1> & !CHP<3>
+	# PAUSE & GIAYPHUT & BTUP & !CHP_mux0007<3>15 & 
+	CHP<2> & CHP<1> & !CHP<3>
+	# PAUSE & !GIAYPHUT & BTDOWN & !CHP_mux0007<3>15 & 
+	!CHP<2> & !CHP<1> & !CHP<3>
+	# !CHP<0> & !UD & !PAUSE & !DVP<2> & !DVP<0> & 
+	!DVP<1> & !DVP<3> & !CHP<1>;	// (8 pt, 17 inp)
+   CHP<2>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    CHP<2>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 2 | 10 | CHP<1>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 11 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 16 | CHP<1>  | N_PZ_454  | CHP<3>  | CHP<0>  | PAUSE  | GIAYPHUT  | CHP_mux0007<3>15  | BTDOWN  | UD  | CHP_cmp_eq0001  | CHP<2>  | DVP<2>  | DVP<0>  | DVP<1>  | DVP<3>  | BTUP
+INPUTMC | 11 | 2 | 10 | 6 | 2 | 2 | 8 | 2 | 11 | 4 | 11 | 4 | 9 | 2 | 9 | 6 | 6 | 6 | 7 | 4 | 12 | 4 | 14
+INPUTP | 5 | 5 | 4 | 95 | 3 | 90
+LCT | 1 | 4 | Internal_Name
+EQ | 29 | 
+   CHP<1>.T := CHP<1> & N_PZ_454
+	# CHP<3> & N_PZ_454
+	# !CHP<0> & !PAUSE & !GIAYPHUT & CHP_mux0007<3>15
+	# !CHP<0> & !GIAYPHUT & BTDOWN & CHP_mux0007<3>15
+	# CHP<0> & UD & !PAUSE & CHP_cmp_eq0001 & !CHP<2>
+	# !CHP<0> & UD & !PAUSE & !CHP_cmp_eq0001 & CHP<2> & 
+	CHP<1> & !CHP<3>
+	# !CHP<0> & !UD & !PAUSE & DVP<2> & !CHP<2> & 
+	!CHP<1> & !CHP<3>
+	# !CHP<0> & !UD & !PAUSE & DVP<0> & !CHP<2> & 
+	!CHP<1> & !CHP<3>
+	# !CHP<0> & !UD & !PAUSE & DVP<1> & !CHP<2> & 
+	!CHP<1> & !CHP<3>
+	# !CHP<0> & !UD & !PAUSE & DVP<3> & !CHP<2> & 
+	!CHP<1> & !CHP<3>
+	# PAUSE & GIAYPHUT & BTUP & !CHP_mux0007<3>15 & 
+	CHP<2> & CHP<1> & !CHP<3>
+	# PAUSE & !GIAYPHUT & BTDOWN & !CHP_mux0007<3>15 & 
+	!CHP<2> & !CHP<1> & !CHP<3>
+	# CHP<0> & PAUSE & GIAYPHUT & BTUP & 
+	!CHP_mux0007<3>15 & !CHP<2> & !CHP<1> & !CHP<3>
+	# !CHP<0> & !UD & !PAUSE & !DVP<2> & !DVP<0> & 
+	!DVP<1> & !DVP<3> & CHP<2>
+	# !CHP<0> & !UD & !PAUSE & !DVP<2> & !DVP<0> & 
+	!DVP<1> & !DVP<3> & CHP<1>
+	# !CHP<0> & !UD & !PAUSE & !DVP<2> & !DVP<0> & 
+	!DVP<1> & !DVP<3> & CHP<3>;	// (16 pt, 16 inp)
+   CHP<1>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    CHP<1>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 2 | 8 | CHP<3>_MC
+ATTRIBUTES | 2185265920 | 0
+OUTPUTMC | 11 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 14 | CHP<2>  | CHP<1>  | N_PZ_454  | CHP<0>  | N_PZ_552  | CHP_mux0007<3>15  | PAUSE  | GIAYPHUT  | CHP<3>  | UD  | DVP<2>  | DVP<0>  | DVP<1>  | DVP<3>
+INPUTMC | 11 | 2 | 9 | 2 | 10 | 6 | 2 | 2 | 11 | 4 | 6 | 4 | 11 | 2 | 8 | 6 | 6 | 6 | 7 | 4 | 12 | 4 | 14
+INPUTP | 3 | 5 | 4 | 3
+LCT | 1 | 4 | Internal_Name
+EQ | 9 | 
+   CHP<3>.T := CHP<2> & CHP<1> & N_PZ_454
+	# !CHP<0> & N_PZ_552 & CHP_mux0007<3>15 & !CHP<2> & 
+	!CHP<1>
+	# !CHP<0> & !PAUSE & !GIAYPHUT & CHP_mux0007<3>15 & 
+	!CHP<2> & !CHP<1> & !CHP<3>
+	# !CHP<0> & !UD & !PAUSE & !DVP<2> & !DVP<0> & 
+	!DVP<1> & !DVP<3> & !CHP<2> & !CHP<1> & CHP<3>;	// (4 pt, 14 inp)
+   CHP<3>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+    CHP<3>.AR = CLR;	// CTR	(1 pt, 1 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 6 | 2 | N_PZ_454_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 3 | 2 | 8 | 2 | 10 | 2 | 9
+INPUTS | 7 | CHP<0>  | UD  | PAUSE  | CHP_cmp_eq0001  | GIAYPHUT  | BTUP  | N_PZ_555
+INPUTMC | 3 | 2 | 11 | 4 | 9 | 4 | 8
+INPUTP | 4 | 3 | 5 | 4 | 90
+EQ | 2 | 
+   N_PZ_454 = CHP<0> & UD & !PAUSE & CHP_cmp_eq0001
+	# CHP<0> & PAUSE & GIAYPHUT & BTUP & N_PZ_555;	// (2 pt, 7 inp)
+
+MACROCELL | 4 | 0 | dem_FSM_FFd1_MC
+ATTRIBUTES | 2290090752 | 0
+OUTPUTMC | 12 | 4 | 4 | 4 | 1 | 12 | 4 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14 | 12 | 12 | 12 | 13 | 12 | 2
+INPUTS | 1 | dem_FSM_FFd2
+INPUTMC | 1 | 4 | 13
+LCT | 1 | 2 | Internal_Name
+EQ | 2 | 
+   dem_FSM_FFd1 := dem_FSM_FFd2;	// (1 pt, 1 inp)
+    dem_FSM_FFd1.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 4 | 13 | dem_FSM_FFd2_MC
+ATTRIBUTES | 2290090752 | 0
+OUTPUTMC | 12 | 4 | 0 | 4 | 1 | 12 | 4 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14 | 12 | 12 | 12 | 13 | 12 | 2
+INPUTS | 1 | dem_FSM_FFd3
+INPUTMC | 1 | 4 | 5
+LCT | 1 | 2 | Internal_Name
+EQ | 2 | 
+   dem_FSM_FFd2 := dem_FSM_FFd3;	// (1 pt, 1 inp)
+    dem_FSM_FFd2.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 4 | 5 | dem_FSM_FFd3_MC
+ATTRIBUTES | 2290090752 | 0
+OUTPUTMC | 13 | 4 | 13 | 4 | 7 | 4 | 1 | 12 | 4 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14 | 12 | 12 | 12 | 13 | 12 | 2
+INPUTS | 1 | dem_FSM_FFd4
+INPUTMC | 1 | 4 | 4
+LCT | 1 | 2 | Internal_Name
+EQ | 2 | 
+   dem_FSM_FFd3 := dem_FSM_FFd4;	// (1 pt, 1 inp)
+    dem_FSM_FFd3.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 4 | 4 | dem_FSM_FFd4_MC
+ATTRIBUTES | 2290090756 | 0
+OUTPUTMC | 12 | 4 | 5 | 4 | 1 | 12 | 4 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14 | 12 | 12 | 12 | 13 | 12 | 2
+INPUTS | 1 | dem_FSM_FFd1
+INPUTMC | 1 | 4 | 0
+LCT | 1 | 2 | Internal_Name
+EQ | 2 | 
+   dem_FSM_FFd4 := dem_FSM_FFd1;	// (1 pt, 1 inp)
+    dem_FSM_FFd4.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 1 | 0 | clock_div_sig_MC
+ATTRIBUTES | 2151711488 | 0
+INPUTS | 18 | U1/count<0>  | U1/count<10>  | U1/count<1>  | U1/count<11>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<12>  | U1/count<5>  | U1/count<13>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>  | U1/count<14>  | U1/count<15>  | U1/count<16>  | U1/count<17>
+INPUTMC | 18 | 1 | 2 | 1 | 5 | 3 | 15 | 1 | 1 | 1 | 15 | 1 | 10 | 3 | 14 | 1 | 14 | 3 | 12 | 1 | 13 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3
+EQ | 6 | 
+   clock_div_sig.T := !U1/count<0> & !U1/count<10> & U1/count<1> & 
+	!U1/count<11> & !U1/count<2> & !U1/count<3> & U1/count<4> & 
+	!U1/count<12> & U1/count<5> & !U1/count<13> & !U1/count<6> & 
+	!U1/count<7> & !U1/count<8> & !U1/count<9> & !U1/count<14> & 
+	!U1/count<15> & !U1/count<16> & !U1/count<17>;	// (1 pt, 18 inp)
+   clock_div_sig.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 2 | U1/count<0>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 19 | 1 | 15 | 1 | 10 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 1 | 1 | 3 | 15 | 1 | 5 | 1 | 2 | 1 | 0
+INPUTS | 18 | U1/count<0>  | U1/count<10>  | U1/count<1>  | U1/count<11>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<12>  | U1/count<5>  | U1/count<13>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>  | U1/count<14>  | U1/count<15>  | U1/count<16>  | U1/count<17>
+INPUTMC | 18 | 1 | 2 | 1 | 5 | 3 | 15 | 1 | 1 | 1 | 15 | 1 | 10 | 3 | 14 | 1 | 14 | 3 | 12 | 1 | 13 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3
+EQ | 6 | 
+   !U1/count<0>.T := !U1/count<0> & !U1/count<10> & U1/count<1> & 
+	!U1/count<11> & !U1/count<2> & !U1/count<3> & U1/count<4> & 
+	!U1/count<12> & U1/count<5> & !U1/count<13> & !U1/count<6> & 
+	!U1/count<7> & !U1/count<8> & !U1/count<9> & !U1/count<14> & 
+	!U1/count<15> & !U1/count<16> & !U1/count<17>;	// (1 pt, 18 inp)
+   U1/count<0>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 5 | U1/count<10>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 12 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 1 | 1 | 3 | 15 | 1 | 2 | 1 | 0
+INPUTS | 10 | U1/count<0>  | U1/count<1>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<5>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>
+INPUTMC | 10 | 1 | 2 | 3 | 15 | 1 | 15 | 1 | 10 | 3 | 14 | 3 | 12 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6
+EQ | 4 | 
+   U1/count<10>.T := U1/count<0> & U1/count<1> & U1/count<2> & 
+	U1/count<3> & U1/count<4> & U1/count<5> & U1/count<6> & 
+	U1/count<7> & U1/count<8> & U1/count<9>;	// (1 pt, 10 inp)
+   U1/count<10>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 3 | 15 | U1/count<1>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 19 | 1 | 15 | 1 | 10 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 1 | 1 | 3 | 15 | 1 | 5 | 1 | 2 | 1 | 0
+INPUTS | 18 | U1/count<0>  | U1/count<10>  | U1/count<1>  | U1/count<11>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<12>  | U1/count<5>  | U1/count<13>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>  | U1/count<14>  | U1/count<15>  | U1/count<16>  | U1/count<17>
+INPUTMC | 18 | 1 | 2 | 1 | 5 | 3 | 15 | 1 | 1 | 1 | 15 | 1 | 10 | 3 | 14 | 1 | 14 | 3 | 12 | 1 | 13 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3
+EQ | 7 | 
+   U1/count<1>.T := U1/count<0>
+	# !U1/count<10> & U1/count<1> & !U1/count<11> & 
+	!U1/count<2> & !U1/count<3> & U1/count<4> & !U1/count<12> & 
+	U1/count<5> & !U1/count<13> & !U1/count<6> & !U1/count<7> & 
+	!U1/count<8> & !U1/count<9> & !U1/count<14> & !U1/count<15> & 
+	!U1/count<16> & !U1/count<17>;	// (2 pt, 18 inp)
+   U1/count<1>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 1 | U1/count<11>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 11 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 3 | 15 | 1 | 2 | 1 | 0
+INPUTS | 11 | U1/count<0>  | U1/count<10>  | U1/count<1>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<5>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>
+INPUTMC | 11 | 1 | 2 | 1 | 5 | 3 | 15 | 1 | 15 | 1 | 10 | 3 | 14 | 3 | 12 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6
+EQ | 4 | 
+   U1/count<11>.T := U1/count<0> & U1/count<10> & U1/count<1> & 
+	U1/count<2> & U1/count<3> & U1/count<4> & U1/count<5> & 
+	U1/count<6> & U1/count<7> & U1/count<8> & U1/count<9>;	// (1 pt, 11 inp)
+   U1/count<11>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 15 | U1/count<2>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 18 | 1 | 10 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 1 | 1 | 3 | 15 | 1 | 5 | 1 | 2 | 1 | 0
+INPUTS | 2 | U1/count<0>  | U1/count<1>
+INPUTMC | 2 | 1 | 2 | 3 | 15
+EQ | 2 | 
+   U1/count<2>.T := U1/count<0> & U1/count<1>;	// (1 pt, 2 inp)
+   U1/count<2>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 10 | U1/count<3>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 17 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 1 | 1 | 3 | 15 | 1 | 5 | 1 | 2 | 1 | 0
+INPUTS | 3 | U1/count<0>  | U1/count<1>  | U1/count<2>
+INPUTMC | 3 | 1 | 2 | 3 | 15 | 1 | 15
+EQ | 2 | 
+   U1/count<3>.T := U1/count<0> & U1/count<1> & U1/count<2>;	// (1 pt, 3 inp)
+   U1/count<3>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 3 | 14 | U1/count<4>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 17 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 1 | 1 | 3 | 15 | 1 | 5 | 1 | 2 | 1 | 0
+INPUTS | 18 | U1/count<0>  | U1/count<1>  | U1/count<2>  | U1/count<3>  | U1/count<10>  | U1/count<11>  | U1/count<4>  | U1/count<12>  | U1/count<5>  | U1/count<13>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>  | U1/count<14>  | U1/count<15>  | U1/count<16>  | U1/count<17>
+INPUTMC | 18 | 1 | 2 | 3 | 15 | 1 | 15 | 1 | 10 | 1 | 5 | 1 | 1 | 3 | 14 | 1 | 14 | 3 | 12 | 1 | 13 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3
+EQ | 8 | 
+   U1/count<4>.T := U1/count<0> & U1/count<1> & U1/count<2> & 
+	U1/count<3>
+	# !U1/count<0> & !U1/count<10> & U1/count<1> & 
+	!U1/count<11> & !U1/count<2> & !U1/count<3> & U1/count<4> & 
+	!U1/count<12> & U1/count<5> & !U1/count<13> & !U1/count<6> & 
+	!U1/count<7> & !U1/count<8> & !U1/count<9> & !U1/count<14> & 
+	!U1/count<15> & !U1/count<16> & !U1/count<17>;	// (2 pt, 18 inp)
+   U1/count<4>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 14 | U1/count<12>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 10 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 3 | 14 | 3 | 15 | 1 | 2 | 1 | 0
+INPUTS | 12 | U1/count<0>  | U1/count<10>  | U1/count<1>  | U1/count<11>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<5>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>
+INPUTMC | 12 | 1 | 2 | 1 | 5 | 3 | 15 | 1 | 1 | 1 | 15 | 1 | 10 | 3 | 14 | 3 | 12 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6
+EQ | 5 | 
+   U1/count<12>.T := U1/count<0> & U1/count<10> & U1/count<1> & 
+	U1/count<11> & U1/count<2> & U1/count<3> & U1/count<4> & 
+	U1/count<5> & U1/count<6> & U1/count<7> & U1/count<8> & 
+	U1/count<9>;	// (1 pt, 12 inp)
+   U1/count<12>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 3 | 12 | U1/count<5>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 17 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 1 | 1 | 3 | 15 | 1 | 5 | 1 | 2 | 1 | 0
+INPUTS | 18 | U1/count<0>  | U1/count<1>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<10>  | U1/count<11>  | U1/count<12>  | U1/count<5>  | U1/count<13>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>  | U1/count<14>  | U1/count<15>  | U1/count<16>  | U1/count<17>
+INPUTMC | 18 | 1 | 2 | 3 | 15 | 1 | 15 | 1 | 10 | 3 | 14 | 1 | 5 | 1 | 1 | 1 | 14 | 3 | 12 | 1 | 13 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3
+EQ | 8 | 
+   U1/count<5>.T := U1/count<0> & U1/count<1> & U1/count<2> & 
+	U1/count<3> & U1/count<4>
+	# !U1/count<0> & !U1/count<10> & U1/count<1> & 
+	!U1/count<11> & !U1/count<2> & !U1/count<3> & U1/count<4> & 
+	!U1/count<12> & U1/count<5> & !U1/count<13> & !U1/count<6> & 
+	!U1/count<7> & !U1/count<8> & !U1/count<9> & !U1/count<14> & 
+	!U1/count<15> & !U1/count<16> & !U1/count<17>;	// (2 pt, 18 inp)
+   U1/count<5>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 13 | U1/count<13>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 9 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 3 | 14 | 3 | 15 | 1 | 2 | 1 | 0
+INPUTS | 13 | U1/count<0>  | U1/count<10>  | U1/count<1>  | U1/count<11>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<12>  | U1/count<5>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>
+INPUTMC | 13 | 1 | 2 | 1 | 5 | 3 | 15 | 1 | 1 | 1 | 15 | 1 | 10 | 3 | 14 | 1 | 14 | 3 | 12 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6
+EQ | 5 | 
+   U1/count<13>.T := U1/count<0> & U1/count<10> & U1/count<1> & 
+	U1/count<11> & U1/count<2> & U1/count<3> & U1/count<4> & 
+	U1/count<12> & U1/count<5> & U1/count<6> & U1/count<7> & 
+	U1/count<8> & U1/count<9>;	// (1 pt, 13 inp)
+   U1/count<13>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 9 | U1/count<6>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 16 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 1 | 1 | 3 | 15 | 1 | 5 | 1 | 2 | 1 | 0
+INPUTS | 6 | U1/count<0>  | U1/count<1>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<5>
+INPUTMC | 6 | 1 | 2 | 3 | 15 | 1 | 15 | 1 | 10 | 3 | 14 | 3 | 12
+EQ | 3 | 
+   U1/count<6>.T := U1/count<0> & U1/count<1> & U1/count<2> & 
+	U1/count<3> & U1/count<4> & U1/count<5>;	// (1 pt, 6 inp)
+   U1/count<6>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 8 | U1/count<7>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 15 | 1 | 7 | 1 | 6 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 1 | 1 | 3 | 15 | 1 | 5 | 1 | 2 | 1 | 0
+INPUTS | 7 | U1/count<0>  | U1/count<1>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<5>  | U1/count<6>
+INPUTMC | 7 | 1 | 2 | 3 | 15 | 1 | 15 | 1 | 10 | 3 | 14 | 3 | 12 | 1 | 9
+EQ | 3 | 
+   U1/count<7>.T := U1/count<0> & U1/count<1> & U1/count<2> & 
+	U1/count<3> & U1/count<4> & U1/count<5> & U1/count<6>;	// (1 pt, 7 inp)
+   U1/count<7>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 7 | U1/count<8>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 14 | 1 | 6 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 1 | 1 | 3 | 15 | 1 | 5 | 1 | 2 | 1 | 0
+INPUTS | 8 | U1/count<0>  | U1/count<1>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<5>  | U1/count<6>  | U1/count<7>
+INPUTMC | 8 | 1 | 2 | 3 | 15 | 1 | 15 | 1 | 10 | 3 | 14 | 3 | 12 | 1 | 9 | 1 | 8
+EQ | 4 | 
+   U1/count<8>.T := U1/count<0> & U1/count<1> & U1/count<2> & 
+	U1/count<3> & U1/count<4> & U1/count<5> & U1/count<6> & 
+	U1/count<7>;	// (1 pt, 8 inp)
+   U1/count<8>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 6 | U1/count<9>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 13 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 1 | 1 | 3 | 15 | 1 | 5 | 1 | 2 | 1 | 0
+INPUTS | 9 | U1/count<0>  | U1/count<1>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<5>  | U1/count<6>  | U1/count<7>  | U1/count<8>
+INPUTMC | 9 | 1 | 2 | 3 | 15 | 1 | 15 | 1 | 10 | 3 | 14 | 3 | 12 | 1 | 9 | 1 | 8 | 1 | 7
+EQ | 4 | 
+   U1/count<9>.T := U1/count<0> & U1/count<1> & U1/count<2> & 
+	U1/count<3> & U1/count<4> & U1/count<5> & U1/count<6> & 
+	U1/count<7> & U1/count<8>;	// (1 pt, 9 inp)
+   U1/count<9>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 12 | U1/count<14>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 8 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 3 | 14 | 3 | 15 | 1 | 2 | 1 | 0
+INPUTS | 14 | U1/count<0>  | U1/count<10>  | U1/count<1>  | U1/count<11>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<12>  | U1/count<5>  | U1/count<13>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>
+INPUTMC | 14 | 1 | 2 | 1 | 5 | 3 | 15 | 1 | 1 | 1 | 15 | 1 | 10 | 3 | 14 | 1 | 14 | 3 | 12 | 1 | 13 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6
+EQ | 5 | 
+   U1/count<14>.T := U1/count<0> & U1/count<10> & U1/count<1> & 
+	U1/count<11> & U1/count<2> & U1/count<3> & U1/count<4> & 
+	U1/count<12> & U1/count<5> & U1/count<13> & U1/count<6> & 
+	U1/count<7> & U1/count<8> & U1/count<9>;	// (1 pt, 14 inp)
+   U1/count<14>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 11 | U1/count<15>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 7 | 1 | 4 | 1 | 3 | 3 | 12 | 3 | 14 | 3 | 15 | 1 | 2 | 1 | 0
+INPUTS | 15 | U1/count<0>  | U1/count<10>  | U1/count<1>  | U1/count<11>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<12>  | U1/count<5>  | U1/count<13>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>  | U1/count<14>
+INPUTMC | 15 | 1 | 2 | 1 | 5 | 3 | 15 | 1 | 1 | 1 | 15 | 1 | 10 | 3 | 14 | 1 | 14 | 3 | 12 | 1 | 13 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 12
+EQ | 5 | 
+   U1/count<15>.T := U1/count<0> & U1/count<10> & U1/count<1> & 
+	U1/count<11> & U1/count<2> & U1/count<3> & U1/count<4> & 
+	U1/count<12> & U1/count<5> & U1/count<13> & U1/count<6> & 
+	U1/count<7> & U1/count<8> & U1/count<9> & U1/count<14>;	// (1 pt, 15 inp)
+   U1/count<15>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 4 | U1/count<16>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 6 | 1 | 3 | 3 | 12 | 3 | 14 | 3 | 15 | 1 | 2 | 1 | 0
+INPUTS | 16 | U1/count<0>  | U1/count<10>  | U1/count<1>  | U1/count<11>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<12>  | U1/count<5>  | U1/count<13>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>  | U1/count<14>  | U1/count<15>
+INPUTMC | 16 | 1 | 2 | 1 | 5 | 3 | 15 | 1 | 1 | 1 | 15 | 1 | 10 | 3 | 14 | 1 | 14 | 3 | 12 | 1 | 13 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 12 | 1 | 11
+EQ | 6 | 
+   U1/count<16>.T := U1/count<0> & U1/count<10> & U1/count<1> & 
+	U1/count<11> & U1/count<2> & U1/count<3> & U1/count<4> & 
+	U1/count<12> & U1/count<5> & U1/count<13> & U1/count<6> & 
+	U1/count<7> & U1/count<8> & U1/count<9> & U1/count<14> & 
+	U1/count<15>;	// (1 pt, 16 inp)
+   U1/count<16>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 1 | 3 | U1/count<17>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 5 | 3 | 12 | 3 | 14 | 3 | 15 | 1 | 2 | 1 | 0
+INPUTS | 17 | U1/count<0>  | U1/count<10>  | U1/count<1>  | U1/count<11>  | U1/count<2>  | U1/count<3>  | U1/count<4>  | U1/count<12>  | U1/count<5>  | U1/count<13>  | U1/count<6>  | U1/count<7>  | U1/count<8>  | U1/count<9>  | U1/count<14>  | U1/count<15>  | U1/count<16>
+INPUTMC | 17 | 1 | 2 | 1 | 5 | 3 | 15 | 1 | 1 | 1 | 15 | 1 | 10 | 3 | 14 | 1 | 14 | 3 | 12 | 1 | 13 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 12 | 1 | 11 | 1 | 4
+EQ | 6 | 
+   U1/count<17>.T := U1/count<0> & U1/count<10> & U1/count<1> & 
+	U1/count<11> & U1/count<2> & U1/count<3> & U1/count<4> & 
+	U1/count<12> & U1/count<5> & U1/count<13> & U1/count<6> & 
+	U1/count<7> & U1/count<8> & U1/count<9> & U1/count<14> & 
+	U1/count<15> & U1/count<16>;	// (1 pt, 17 inp)
+   U1/count<17>.CLK  =  CLK;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | CLK
+
+MACROCELL | 4 | 7 | N_PZ_392_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 7 | 4 | 1 | 5 | 0 | 5 | 1 | 5 | 11 | 5 | 13 | 5 | 14 | 2 | 14
+INPUTS | 5 | dem_FSM_FFd3  | DVG<2>  | DVG<1>  | DVG<0>  | DVG<3>
+INPUTMC | 5 | 4 | 5 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 15
+EQ | 2 | 
+   N_PZ_392 = !dem_FSM_FFd3
+	# !DVG<2> & DVG<1> & !DVG<0> & DVG<3>;	// (2 pt, 5 inp)
+
+MACROCELL | 12 | 4 | SSEG_7<10>_MC
+ATTRIBUTES | 2290352898 | 0
+OUTPUTMC | 1 | 12 | 4
+INPUTS | 5 | dem_FSM_FFd4  | dem_FSM_FFd1  | dem_FSM_FFd2  | dem_FSM_FFd3  | SSEG_7<10>
+INPUTMC | 5 | 4 | 4 | 4 | 0 | 4 | 13 | 4 | 5 | 12 | 4
+LCT | 1 | 2 | Internal_Name
+EQ | 4 | 
+   SSEG_7<10> := dem_FSM_FFd4
+	# !dem_FSM_FFd1 & !dem_FSM_FFd2 & !dem_FSM_FFd3 & 
+	SSEG_7<10>;	// (2 pt, 5 inp)
+    SSEG_7<10>.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 5 | 0 | SSEG_7<1>_MC
+ATTRIBUTES | 2290352898 | 0
+OUTPUTMC | 1 | 5 | 0
+INPUTS | 21 | CHG<0>  | CHG<1>  | N_PZ_489  | N_PZ_392  | CHP<0>  | CHP<2>  | CHP<1>  | CHP<3>  | dem_FSM_FFd1  | DVP<2>  | DVP<0>  | DVP<1>  | DVP<3>  | dem_FSM_FFd2  | DVG<2>  | DVG<1>  | DVG<0>  | DVG<3>  | dem_FSM_FFd4  | dem_FSM_FFd3  | SSEG_7<1>
+INPUTMC | 21 | 3 | 5 | 6 | 8 | 4 | 2 | 4 | 7 | 2 | 11 | 2 | 9 | 2 | 10 | 2 | 8 | 4 | 0 | 6 | 6 | 6 | 7 | 4 | 12 | 4 | 14 | 4 | 13 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 15 | 4 | 4 | 4 | 5 | 5 | 0
+LCT | 1 | 2 | Internal_Name
+EQ | 16 | 
+   SSEG_7<1> := CHG<0> & !CHG<1> & N_PZ_489 & !N_PZ_392
+	# CHP<0> & CHP<2> & !CHP<1> & !CHP<3> & 
+	dem_FSM_FFd1
+	# DVP<2> & DVP<0> & !DVP<1> & !DVP<3> & 
+	dem_FSM_FFd2
+	# DVP<2> & !DVP<0> & DVP<1> & !DVP<3> & 
+	dem_FSM_FFd2
+	# DVG<2> & DVG<1> & !DVG<0> & !DVG<3> & 
+	dem_FSM_FFd4
+	# DVG<2> & !DVG<1> & DVG<0> & !DVG<3> & 
+	dem_FSM_FFd4
+	# !dem_FSM_FFd1 & !dem_FSM_FFd2 & !dem_FSM_FFd3 & 
+	!dem_FSM_FFd4 & SSEG_7<1>
+	# !CHG<0> & !DVG<2> & DVG<1> & !DVG<0> & DVG<3> & 
+	!CHG<1> & N_PZ_489 & dem_FSM_FFd3;	// (8 pt, 21 inp)
+    SSEG_7<1>.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 5 | 1 | SSEG_7<2>_MC
+ATTRIBUTES | 2290352898 | 0
+OUTPUTMC | 1 | 5 | 1
+INPUTS | 22 | CHP<0>  | CHP<2>  | CHP<1>  | CHP<3>  | dem_FSM_FFd1  | DVP<2>  | DVP<0>  | DVP<1>  | DVP<3>  | dem_FSM_FFd2  | CHG<0>  | CHG<1>  | CHG<2>  | CHG<3>  | N_PZ_392  | DVG<2>  | DVG<1>  | DVG<0>  | DVG<3>  | dem_FSM_FFd4  | dem_FSM_FFd3  | SSEG_7<2>
+INPUTMC | 22 | 2 | 11 | 2 | 9 | 2 | 10 | 2 | 8 | 4 | 0 | 6 | 6 | 6 | 7 | 4 | 12 | 4 | 14 | 4 | 13 | 3 | 5 | 6 | 8 | 6 | 9 | 2 | 12 | 4 | 7 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 15 | 4 | 4 | 4 | 5 | 5 | 1
+LCT | 1 | 2 | Internal_Name
+EQ | 12 | 
+   SSEG_7<2> := !CHP<0> & !CHP<2> & CHP<1> & !CHP<3> & 
+	dem_FSM_FFd1
+	# !DVP<2> & !DVP<0> & DVP<1> & !DVP<3> & 
+	dem_FSM_FFd2
+	# !CHG<0> & CHG<1> & !CHG<2> & !CHG<3> & !N_PZ_392
+	# !DVG<2> & DVG<1> & !DVG<0> & !DVG<3> & 
+	dem_FSM_FFd4
+	# !dem_FSM_FFd1 & !dem_FSM_FFd2 & !dem_FSM_FFd3 & 
+	!dem_FSM_FFd4 & SSEG_7<2>
+	# CHG<0> & !DVG<2> & DVG<1> & !DVG<0> & DVG<3> & 
+	!CHG<1> & !CHG<2> & !CHG<3> & dem_FSM_FFd3;	// (6 pt, 22 inp)
+    SSEG_7<2>.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 5 | 11 | SSEG_7<3>_MC
+ATTRIBUTES | 2290352898 | 0
+OUTPUTMC | 1 | 5 | 11
+INPUTS | 23 | CHG<0>  | CHG<1>  | N_PZ_489  | N_PZ_392  | CHP<0>  | CHP<2>  | CHP<1>  | CHP<3>  | dem_FSM_FFd1  | DVP<2>  | DVP<0>  | DVP<1>  | DVP<3>  | dem_FSM_FFd2  | CHG<2>  | CHG<3>  | DVG<2>  | DVG<1>  | DVG<0>  | DVG<3>  | dem_FSM_FFd4  | dem_FSM_FFd3  | SSEG_7<3>
+INPUTMC | 23 | 3 | 5 | 6 | 8 | 4 | 2 | 4 | 7 | 2 | 11 | 2 | 9 | 2 | 10 | 2 | 8 | 4 | 0 | 6 | 6 | 6 | 7 | 4 | 12 | 4 | 14 | 4 | 13 | 6 | 9 | 2 | 12 | 0 | 12 | 0 | 5 | 0 | 2 | 0 | 15 | 4 | 4 | 4 | 5 | 5 | 11
+LCT | 1 | 2 | Internal_Name
+EQ | 25 | 
+   SSEG_7<3> := !CHG<0> & !CHG<1> & N_PZ_489 & !N_PZ_392
+	# CHP<0> & !CHP<2> & !CHP<1> & !CHP<3> & 
+	dem_FSM_FFd1
+	# !CHP<0> & CHP<2> & !CHP<1> & !CHP<3> & 
+	dem_FSM_FFd1
+	# DVP<2> & DVP<0> & DVP<1> & !DVP<3> & 
+	dem_FSM_FFd2
+	# DVP<2> & !DVP<0> & !DVP<1> & !DVP<3> & 
+	dem_FSM_FFd2
+	# !DVP<2> & DVP<0> & !DVP<1> & !DVP<3> & 
+	dem_FSM_FFd2
+	# CHG<0> & !CHG<1> & !CHG<2> & !CHG<3> & !N_PZ_392
+	# DVG<2> & DVG<1> & DVG<0> & !DVG<3> & 
+	dem_FSM_FFd4
+	# DVG<2> & !DVG<1> & !DVG<0> & !DVG<3> & 
+	dem_FSM_FFd4
+	# !DVG<2> & !DVG<1> & DVG<0> & !DVG<3> & 
+	dem_FSM_FFd4
+	# !dem_FSM_FFd1 & !dem_FSM_FFd2 & !dem_FSM_FFd3 & 
+	!dem_FSM_FFd4 & SSEG_7<3>
+	# CHG<0> & !DVG<2> & DVG<1> & !DVG<0> & DVG<3> & 
+	CHG<1> & !CHG<2> & !CHG<3> & dem_FSM_FFd3
+	# !CHG<0> & !DVG<2> & DVG<1> & !DVG<0> & DVG<3> & 
+	!CHG<1> & !CHG<2> & !CHG<3> & dem_FSM_FFd3;	// (13 pt, 23 inp)
+    SSEG_7<3>.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 5 | 13 | SSEG_7<4>_MC
+ATTRIBUTES | 2290352898 | 0
+OUTPUTMC | 1 | 5 | 13
+INPUTS | 23 | DVG<0>  | DVG<3>  | dem_FSM_FFd4  | DVP<0>  | DVP<3>  | dem_FSM_FFd2  | CHP<0>  | CHP<2>  | CHP<3>  | dem_FSM_FFd1  | DVP<2>  | DVP<1>  | CHG<0>  | CHG<1>  | CHG<3>  | N_PZ_392  | N_PZ_489  | dem_FSM_FFd3  | DVG<2>  | DVG<1>  | CHP<1>  | CHG<2>  | SSEG_7<4>
+INPUTMC | 23 | 0 | 2 | 0 | 15 | 4 | 4 | 6 | 7 | 4 | 14 | 4 | 13 | 2 | 11 | 2 | 9 | 2 | 8 | 4 | 0 | 6 | 6 | 4 | 12 | 3 | 5 | 6 | 8 | 2 | 12 | 4 | 7 | 4 | 2 | 4 | 5 | 0 | 12 | 0 | 5 | 2 | 10 | 6 | 9 | 5 | 13
+LCT | 1 | 2 | Internal_Name
+EQ | 18 | 
+   SSEG_7<4> := DVG<0> & !DVG<3> & dem_FSM_FFd4
+	# DVP<0> & !DVP<3> & dem_FSM_FFd2
+	# CHP<0> & !CHP<2> & !CHP<3> & dem_FSM_FFd1
+	# DVP<2> & !DVP<1> & !DVP<3> & dem_FSM_FFd2
+	# CHG<0> & !CHG<1> & !CHG<3> & !N_PZ_392
+	# !CHG<0> & !CHG<1> & N_PZ_489 & dem_FSM_FFd3
+	# DVG<2> & !DVG<1> & !DVG<3> & dem_FSM_FFd4
+	# !DVG<2> & !DVG<1> & DVG<0> & dem_FSM_FFd4
+	# CHP<2> & !CHP<1> & !CHP<3> & dem_FSM_FFd1
+	# !DVP<2> & DVP<0> & !DVP<1> & DVP<3> & 
+	dem_FSM_FFd2
+	# CHG<0> & CHG<1> & !CHG<2> & !CHG<3> & 
+	dem_FSM_FFd3
+	# !dem_FSM_FFd1 & !dem_FSM_FFd2 & !dem_FSM_FFd3 & 
+	!dem_FSM_FFd4 & SSEG_7<4>
+	# !CHG<0> & !DVG<2> & DVG<1> & !DVG<0> & DVG<3> & 
+	!CHG<2> & !CHG<3> & dem_FSM_FFd3;	// (13 pt, 23 inp)
+    SSEG_7<4>.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 5 | 14 | SSEG_7<5>_MC
+ATTRIBUTES | 2290352898 | 0
+OUTPUTMC | 1 | 5 | 14
+INPUTS | 22 | CHP<0>  | CHP<2>  | CHP<3>  | dem_FSM_FFd1  | DVP<2>  | DVP<0>  | DVP<3>  | dem_FSM_FFd2  | DVP<1>  | CHG<0>  | CHG<2>  | CHG<3>  | N_PZ_392  | DVG<2>  | DVG<1>  | DVG<3>  | dem_FSM_FFd4  | DVG<0>  | CHP<1>  | CHG<1>  | dem_FSM_FFd3  | SSEG_7<5>
+INPUTMC | 22 | 2 | 11 | 2 | 9 | 2 | 8 | 4 | 0 | 6 | 6 | 6 | 7 | 4 | 14 | 4 | 13 | 4 | 12 | 3 | 5 | 6 | 9 | 2 | 12 | 4 | 7 | 0 | 12 | 0 | 5 | 0 | 15 | 4 | 4 | 0 | 2 | 2 | 10 | 6 | 8 | 4 | 5 | 5 | 14
+LCT | 1 | 2 | Internal_Name
+EQ | 16 | 
+   SSEG_7<5> := CHP<0> & !CHP<2> & !CHP<3> & dem_FSM_FFd1
+	# !DVP<2> & DVP<0> & !DVP<3> & dem_FSM_FFd2
+	# !DVP<2> & DVP<1> & !DVP<3> & dem_FSM_FFd2
+	# CHG<0> & !CHG<2> & !CHG<3> & !N_PZ_392
+	# !DVG<2> & DVG<1> & !DVG<3> & dem_FSM_FFd4
+	# !DVG<2> & DVG<0> & !DVG<3> & dem_FSM_FFd4
+	# DVG<1> & DVG<0> & !DVG<3> & dem_FSM_FFd4
+	# DVP<0> & DVP<1> & !DVP<3> & dem_FSM_FFd2
+	# !CHP<2> & CHP<1> & !CHP<3> & dem_FSM_FFd1
+	# !CHG<0> & CHG<1> & !CHG<2> & !CHG<3> & 
+	dem_FSM_FFd3
+	# !CHG<1> & !CHG<2> & !CHG<3> & dem_FSM_FFd3 & 
+	N_PZ_392
+	# !dem_FSM_FFd1 & !dem_FSM_FFd2 & !dem_FSM_FFd3 & 
+	!dem_FSM_FFd4 & SSEG_7<5>;	// (12 pt, 22 inp)
+    SSEG_7<5>.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 5 | 15 | SSEG_7<6>_MC
+ATTRIBUTES | 1074004738 | 0
+INPUTS | 1 | SSEG_7<6>_BUFR
+INPUTMC | 1 | 2 | 14
+EQ | 1 | 
+   SSEG_7<6> = SSEG_7<6>_BUFR;	// (1 pt, 1 inp)
+
+MACROCELL | 2 | 14 | SSEG_7<6>_BUFR_MC
+ATTRIBUTES | 2290090752 | 0
+OUTPUTMC | 2 | 2 | 14 | 5 | 15
+INPUTS | 21 | CHG<3>  | dem_FSM_FFd3  | CHP<3>  | dem_FSM_FFd1  | DVP<2>  | DVP<3>  | dem_FSM_FFd2  | DVG<2>  | DVG<3>  | dem_FSM_FFd4  | DVG<1>  | CHG<1>  | CHG<2>  | N_PZ_392  | DVP<1>  | CHP<2>  | CHP<1>  | DVP<0>  | CHG<0>  | DVG<0>  | SSEG_7<6>_BUFR
+INPUTMC | 21 | 2 | 12 | 4 | 5 | 2 | 8 | 4 | 0 | 6 | 6 | 4 | 14 | 4 | 13 | 0 | 12 | 0 | 15 | 4 | 4 | 0 | 5 | 6 | 8 | 6 | 9 | 4 | 7 | 4 | 12 | 2 | 9 | 2 | 10 | 6 | 7 | 3 | 5 | 0 | 2 | 2 | 14
+LCT | 1 | 2 | Internal_Name
+EQ | 20 | 
+   SSEG_7<6>_BUFR := CHG<3> & dem_FSM_FFd3
+	# CHP<3> & dem_FSM_FFd1
+	# DVP<2> & DVP<3> & dem_FSM_FFd2
+	# DVG<2> & DVG<3> & dem_FSM_FFd4
+	# DVG<1> & DVG<3> & dem_FSM_FFd4
+	# CHG<1> & CHG<2> & dem_FSM_FFd3
+	# !CHG<1> & !CHG<2> & !N_PZ_392
+	# DVP<1> & DVP<3> & dem_FSM_FFd2
+	# CHP<2> & CHP<1> & dem_FSM_FFd1
+	# !CHP<2> & !CHP<1> & dem_FSM_FFd1
+	# DVP<2> & DVP<0> & DVP<1> & dem_FSM_FFd2
+	# !DVP<2> & !DVP<1> & !DVP<3> & dem_FSM_FFd2
+	# !CHG<0> & !CHG<1> & !CHG<2> & dem_FSM_FFd3
+	# DVG<2> & DVG<1> & DVG<0> & dem_FSM_FFd4
+	# !DVG<2> & !DVG<1> & !DVG<3> & dem_FSM_FFd4
+	# !dem_FSM_FFd1 & !dem_FSM_FFd2 & !dem_FSM_FFd3 & 
+	!dem_FSM_FFd4 & SSEG_7<6>_BUFR
+	# CHG<0> & !DVG<2> & DVG<1> & !DVG<0> & DVG<3> & 
+	CHG<2> & dem_FSM_FFd3;	// (17 pt, 21 inp)
+    SSEG_7<6>_BUFR.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 12 | 12 | SSEG_7<7>_MC
+ATTRIBUTES | 2290352898 | 0
+OUTPUTMC | 1 | 12 | 12
+INPUTS | 5 | dem_FSM_FFd1  | dem_FSM_FFd2  | dem_FSM_FFd3  | dem_FSM_FFd4  | SSEG_7<7>
+INPUTMC | 5 | 4 | 0 | 4 | 13 | 4 | 5 | 4 | 4 | 12 | 12
+LCT | 1 | 2 | Internal_Name
+EQ | 4 | 
+   SSEG_7<7> := dem_FSM_FFd1
+	# !dem_FSM_FFd2 & !dem_FSM_FFd3 & !dem_FSM_FFd4 & 
+	SSEG_7<7>;	// (2 pt, 5 inp)
+    SSEG_7<7>.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 12 | 13 | SSEG_7<8>_MC
+ATTRIBUTES | 2290352898 | 0
+OUTPUTMC | 1 | 12 | 13
+INPUTS | 5 | dem_FSM_FFd2  | dem_FSM_FFd1  | dem_FSM_FFd3  | dem_FSM_FFd4  | SSEG_7<8>
+INPUTMC | 5 | 4 | 13 | 4 | 0 | 4 | 5 | 4 | 4 | 12 | 13
+LCT | 1 | 2 | Internal_Name
+EQ | 4 | 
+   SSEG_7<8> := dem_FSM_FFd2
+	# !dem_FSM_FFd1 & !dem_FSM_FFd3 & !dem_FSM_FFd4 & 
+	SSEG_7<8>;	// (2 pt, 5 inp)
+    SSEG_7<8>.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 12 | 2 | SSEG_7<9>_MC
+ATTRIBUTES | 2290352898 | 0
+OUTPUTMC | 1 | 12 | 2
+INPUTS | 5 | dem_FSM_FFd3  | dem_FSM_FFd1  | dem_FSM_FFd2  | dem_FSM_FFd4  | SSEG_7<9>
+INPUTMC | 5 | 4 | 5 | 4 | 0 | 4 | 13 | 4 | 4 | 12 | 2
+LCT | 1 | 2 | Internal_Name
+EQ | 4 | 
+   SSEG_7<9> := dem_FSM_FFd3
+	# !dem_FSM_FFd1 & !dem_FSM_FFd2 & !dem_FSM_FFd4 & 
+	SSEG_7<9>;	// (2 pt, 5 inp)
+    SSEG_7<9>.CLK = clock_div_sig;	// CTC	(1 pt, 1 inp)
+
+PIN | BTDOWN | 64 | 16 | LVCMOS18 | 95 | 13 | 6 | 3 | 4 | 10 | 0 | 15 | 0 | 2 | 4 | 6 | 0 | 12 | 2 | 12 | 6 | 9 | 6 | 7 | 6 | 6 | 2 | 10 | 2 | 9 | 2 | 11
+PIN | BTUP | 64 | 16 | LVCMOS18 | 90 | 12 | 6 | 1 | 6 | 3 | 0 | 2 | 0 | 12 | 6 | 9 | 6 | 8 | 6 | 7 | 6 | 6 | 6 | 2 | 2 | 10 | 2 | 9 | 2 | 11
+PIN | CLK | 16384 | 16 | LVCMOS18 | 59 | 52 | 3 | 10 | 3 | 9 | 3 | 8 | 3 | 7 | 3 | 11 | 3 | 13 | 3 | 6 | 0 | 3 | 0 | 11 | 0 | 13 | 0 | 1 | 0 | 6 | 0 | 4 | 0 | 9 | 0 | 10 | 0 | 14 | 0 | 0 | 0 | 15 | 0 | 2 | 0 | 5 | 0 | 12 | 3 | 5 | 2 | 12 | 6 | 9 | 6 | 8 | 4 | 14 | 4 | 12 | 6 | 7 | 6 | 6 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11 | 1 | 15 | 1 | 10 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 6 | 1 | 13 | 1 | 12 | 1 | 11 | 1 | 4 | 1 | 3 | 3 | 12 | 1 | 14 | 3 | 14 | 1 | 1 | 3 | 15 | 1 | 5 | 1 | 2 | 1 | 0
+PIN | CLR | 64 | 16 | LVCMOS18 | 1 | 1 | 6 | 3
+PIN | GIAYPHUT | 64 | 16 | LVCMOS18 | 4 | 18 | 6 | 1 | 6 | 3 | 4 | 10 | 0 | 15 | 0 | 2 | 4 | 6 | 0 | 12 | 6 | 0 | 2 | 12 | 6 | 9 | 6 | 7 | 6 | 6 | 4 | 11 | 6 | 2 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11
+PIN | PAUSE | 64 | 16 | LVCMOS18 | 5 | 26 | 6 | 1 | 6 | 3 | 3 | 3 | 3 | 4 | 3 | 2 | 4 | 10 | 0 | 15 | 0 | 2 | 4 | 6 | 0 | 5 | 0 | 12 | 6 | 0 | 2 | 12 | 6 | 9 | 2 | 7 | 6 | 8 | 4 | 14 | 4 | 12 | 6 | 7 | 6 | 6 | 4 | 11 | 6 | 2 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11
+PIN | UD | 64 | 16 | LVCMOS18 | 3 | 16 | 6 | 1 | 3 | 2 | 4 | 10 | 4 | 6 | 0 | 12 | 6 | 0 | 2 | 12 | 6 | 9 | 2 | 7 | 6 | 8 | 6 | 7 | 6 | 2 | 2 | 8 | 2 | 10 | 2 | 9 | 2 | 11
+PIN | SSEG_7<0> | 536871040 | 0 | LVCMOS18 | 52
+PIN | SSEG_7<10> | 536871040 | 0 | LVCMOS18 | 117
+PIN | SSEG_7<1> | 536871040 | 0 | LVCMOS18 | 54
+PIN | SSEG_7<2> | 536871040 | 0 | LVCMOS18 | 55
+PIN | SSEG_7<3> | 536871040 | 0 | LVCMOS18 | 62
+PIN | SSEG_7<4> | 536871040 | 0 | LVCMOS18 | 65
+PIN | SSEG_7<5> | 536871040 | 0 | LVCMOS18 | 66
+PIN | SSEG_7<6> | 536871040 | 0 | LVCMOS18 | 67
+PIN | SSEG_7<7> | 536871040 | 0 | LVCMOS18 | 120
+PIN | SSEG_7<8> | 536871040 | 0 | LVCMOS18 | 121
+PIN | SSEG_7<9> | 536871040 | 0 | LVCMOS18 | 115

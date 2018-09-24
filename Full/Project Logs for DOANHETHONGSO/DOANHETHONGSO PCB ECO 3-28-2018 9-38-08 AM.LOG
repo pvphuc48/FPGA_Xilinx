@@ -1,0 +1,19 @@
+Change Component Designator: OldDesignator=DS? NewDesignator=DS1
+Change Component Designator: OldDesignator=DS? NewDesignator=DS2
+Change Component Designator: OldDesignator=P? NewDesignator=P1
+Change Net Name : Old Net Name=NetDS?_1 New Net Name=NetDS1_1
+Change Net Name : Old Net Name=NetDS?_3 New Net Name=NetDS1_3
+Change Net Name : Old Net Name=NetDS?_4 New Net Name=NetDS1_4
+Change Net Name : Old Net Name=NetDS?_5 New Net Name=NetDS1_5
+Change Net Name : Old Net Name=NetDS?_6 New Net Name=NetDS1_6
+Change Net Name : Old Net Name=NetDS?_7 New Net Name=NetDS2_7
+Change Net Name : Old Net Name=NetDS?_8 New Net Name=NetDS2_8
+Change Net Name : Old Net Name=NetDS?_9 New Net Name=NetDS1_9
+Change Net Name : Old Net Name=NetDS?_10 New Net Name=NetDS1_10
+Added Pin To Net: NetName=NetDS1_7 Pin=DS1-7
+Added Pin To Net: NetName=NetDS1_7 Pin=P1-1
+Added Net: Name=NetDS1_7
+Added Pin To Net: NetName=NetDS1_8 Pin=DS1-8
+Added Pin To Net: NetName=NetDS1_8 Pin=P1-2
+Added Net: Name=NetDS1_8
+Added Member To Class: ClassName=DOANHETHONGSO Member=Component DS1 LED7SEG-2

@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "D:/ThietKeLogicSo/DOANHETHONGSO/clock_divide_isim_beh.exe" -prj "D:/ThietKeLogicSo/DOANHETHONGSO/clock_divide_beh.prj" "work.clock_divide" 

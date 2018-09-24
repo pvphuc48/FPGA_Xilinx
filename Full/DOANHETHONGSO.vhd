@@ -1,0 +1,255 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_arith.ALL;
+use IEEE.STD_LOGIC_unsigned.ALL;
+library UNISIM;
+use UNISIM.VComponents.all;
+
+entity DEM_0099 is
+Port ( 
+PAUSE :in std_logic;
+BTUP: IN STD_LOGIC;
+BTDOWN: IN STD_LOGIC;
+GIAYPHUT: IN STD_LOGIC;
+UD: IN STD_LOGIC;
+
+CLK : in STD_LOGIC;
+CLR : in STD_LOGIC;
+SSEG_7 : out STD_LOGIC_VECTOR (0 to 10));
+end DEM_0099;
+
+architecture Behavioral of DEM_0099 is
+
+component clock_divide 
+    Port ( clock_osc : in  STD_LOGIC;
+           clock_div : out  STD_LOGIC);
+end component;
+
+signal clock_div_sig : std_logic;
+
+FUNCTION GIAIMADVGIAY(BCD: IN INTEGER) RETURN
+STD_LOGIC_VECTOR IS
+VARIABLE MA7DOAN: STD_LOGIC_VECTOR(0 to 10);
+BEGIN
+CASE BCD IS
+WHEN 0 => MA7DOAN := "00000010001";----- bit cuoi là chân 8
+WHEN 1 => MA7DOAN := "10011110001";
+WHEN 2 => MA7DOAN := "00100100001";
+WHEN 3 => MA7DOAN := "00001100001";
+WHEN 4 => MA7DOAN := "10011000001";
+WHEN 5 => MA7DOAN := "01001000001";
+WHEN 6 => MA7DOAN := "01000000001";
+WHEN 7 => MA7DOAN := "00011110001";
+WHEN 8 => MA7DOAN := "00000000001";
+WHEN 9 => MA7DOAN := "00001000001";
+WHEN OTHERS => MA7DOAN := "00000010001"; 
+END CASE;
+
+RETURN(MA7DOAN);
+END GIAIMADVGIAY;
+
+FUNCTION GIAIMACHGIAY(BCD: IN INTEGER) RETURN
+STD_LOGIC_VECTOR IS
+VARIABLE MA7DOAN: STD_LOGIC_VECTOR(0 to 10);
+BEGIN
+CASE BCD IS
+
+WHEN 0 => MA7DOAN := "00000010010"; -- bit ke cuoi là bit 7
+WHEN 1 => MA7DOAN := "10011110010";
+WHEN 2 => MA7DOAN := "00100100010";
+WHEN 3 => MA7DOAN := "00001100010";
+WHEN 4 => MA7DOAN := "10011000010";
+WHEN 5 => MA7DOAN := "01001000010";
+WHEN 6 => MA7DOAN := "00000010010";
+--WHEN 7 => MA7DOAN := "00011110010";
+--WHEN 8 => MA7DOAN := "00000000010";
+--WHEN 9 => MA7DOAN := "00001000010";
+WHEN OTHERS => MA7DOAN := "00000010010"; 
+END CASE;
+
+RETURN(MA7DOAN);
+END GIAIMACHGIAY;
+
+
+FUNCTION GIAIMADVPHUT(BCD: IN INTEGER) RETURN
+STD_LOGIC_VECTOR IS
+VARIABLE MA7DOAN: STD_LOGIC_VECTOR(0 to 10);
+BEGIN
+CASE BCD IS
+
+WHEN 0 => MA7DOAN := "00000010100"; -- bit ke cuoi là bit 8
+WHEN 1 => MA7DOAN := "10011110100";
+WHEN 2 => MA7DOAN := "00100100100";
+WHEN 3 => MA7DOAN := "00001100100";
+WHEN 4 => MA7DOAN := "10011000100";
+WHEN 5 => MA7DOAN := "01001000100";
+WHEN 6 => MA7DOAN := "01000000100";
+WHEN 7 => MA7DOAN := "00011110100";
+WHEN 8 => MA7DOAN := "00000000100";
+WHEN 9 => MA7DOAN := "00001000100";
+WHEN OTHERS => MA7DOAN := "00000010100"; 
+END CASE;
+
+RETURN(MA7DOAN);
+END GIAIMADVPHUT;
+
+
+FUNCTION GIAIMACHPHUT(BCD: IN INTEGER) RETURN
+STD_LOGIC_VECTOR IS
+VARIABLE MA7DOAN: STD_LOGIC_VECTOR(0 to 10);
+BEGIN
+CASE BCD IS
+
+WHEN 0 => MA7DOAN := "00000011000"; -- bit ke cuoi là bit 7
+WHEN 1 => MA7DOAN := "10011111000";
+WHEN 2 => MA7DOAN := "00100101000";
+WHEN 3 => MA7DOAN := "00001101000";
+WHEN 4 => MA7DOAN := "10011001000";
+WHEN 5 => MA7DOAN := "01001001000";
+WHEN 6 => MA7DOAN := "00000011000";
+--WHEN 7 => MA7DOAN := "00011111000";
+--WHEN 8 => MA7DOAN := "00000001000";
+--WHEN 9 => MA7DOAN := "00001001000";
+WHEN OTHERS => MA7DOAN := "00000011000"; 
+END CASE;
+
+RETURN(MA7DOAN);
+END GIAIMACHPHUT;
+
+begin
+
+U1 : clock_divide
+	Port map(
+		clock_osc => clk , clock_div => clock_div_sig
+	);
+
+PROCESS(CLK,clock_div_sig)
+variable dem :integer range 0 to 1000;
+VARIABLE DVG: INTEGER RANGE 0 TO 10;
+VARIABLE CHG: INTEGER RANGE 0 TO 10;
+VARIABLE DVT: INTEGER RANGE 0 TO 100000;
+VARIABLE DVP: INTEGER RANGE 0 TO 10;
+VARIABLE CHP: INTEGER RANGE 0 TO 10;
+
+
+BEGIN
+
+IF CLR='1' THEN DVG:=0;CHG:=0; DVP := 0; CHP:= 0;
+
+elsIF clk='1' and clk'EVENT THEN
+	if pause = '1' then
+	 if GIAYphut = '1' then
+			if btup ='1' then 
+					DVT:= DVT +1;
+					IF DVT = 10000 THEN DVG := DVG + 1;DVT := 0; END IF;
+					IF DVG=10 THEN DVG:=0; DVT := 0; 
+					CHG:=CHG+1;END IF;
+					IF CHG = 6 THEN CHG := 0; 
+					DVP := DVP + 1;END IF;
+					IF DVP = 10 THEN DVP:= 0; 
+					CHP := CHP + 1; END IF;
+					IF CHP = 6 THEN CHP := 0;
+					END IF;
+		
+			end if;
+			
+	elsif GIAYphut = '0' then	
+			IF btdown = '1' then 
+					DVT:= DVT +1;
+					IF DVT = 10000 THEN DVG := DVG - 1;DVT := 0; END IF;
+					
+					IF DVG = 0 THEN
+						 
+						IF CHG = 6 AND DVG = 0 THEN 
+						DVP := DVP - 1; END IF; 
+						DVG :=10 ;
+						CHG := CHG -1;
+						END IF;
+					
+					IF CHG = 0 THEN CHG := 6;
+					END IF;
+					IF DVP = 0 THEN DVP:= 10;
+					CHP := CHP -1; END IF;
+					
+					IF CHP = 0 THEN CHP := 6;
+					END IF;
+			end if;
+	END IF;
+			
+			
+			
+			
+	elsif pause = '0' then
+	
+	IF UD='1' THEN
+		DVT:= DVT +1;
+		IF DVT = 100000 THEN DVG := DVG + 1;DVT := 0; END IF;
+		IF DVG=10 THEN DVG:=0; DVT := 0; 
+		CHG:=CHG+1;END IF;
+		IF CHG = 6 THEN CHG := 0; 
+		DVP := DVP + 1;END IF;
+		IF DVP = 10 THEN DVP:= 0; 
+		CHP := CHP + 1; END IF;
+		IF CHP = 6 THEN CHP := 0;
+		END IF;
+		
+		
+		
+	ELSIF UD='0' THEN
+		DVT:= DVT +1;
+		IF CHP = 0 THEN CHP := 6;
+		END IF;
+		IF DVP = 0 THEN DVP:= 10;
+		CHP := CHP -1; END IF;
+		
+		
+		IF CHG = 0 THEN CHG := 6;
+		END IF;
+		IF DVG = 0 THEN
+			 
+			IF CHG = 6 AND DVG = 0 THEN 
+			DVP := DVP - 1; END IF; 
+			DVG :=10 ;
+			CHG := CHG -1;
+			END IF;
+				IF DVT = 100000 THEN DVG := DVG - 1;DVT := 0; END IF;
+			END IF;	
+		
+		
+		
+
+		
+	END IF;
+END IF;
+
+
+if(clock_div_sig='1' and clock_div_sig'EVENT) then
+	if(dem=0) then
+ SSEG_7 <= GIAIMADVGIAY(DVG);
+ dem:=dem+1;
+ elsif (dem=1) then
+  if    (DVG = 10  AND CHG = 5) THEN SSEG_7 <="00000010010";
+  elsif (DVG = 10  AND CHG = 4) THEN SSEG_7 <="01001000010";
+  elsif (DVG = 10  AND CHG = 3) THEN SSEG_7 <="10011000010";
+  elsif (DVG = 10  AND CHG = 2) THEN SSEG_7 <="00001100010";
+  elsif (DVG = 10  AND CHG = 1) THEN SSEG_7 <="00100100010";
+  elsif (DVG = 10  AND CHG = 0) THEN SSEG_7 <="10011110010";
+ 
+ ELSE SSEG_7 <= GIAIMACHGIAY(CHG);
+ END IF;
+
+dem:=dem+1;
+ elsif (dem = 2) then
+ SSEG_7 <= GIAIMADVPHUT(DVP);
+  
+ dem := dem + 1;
+ elsif (dem = 3) then 
+ SSEG_7<= GIAIMACHPHUT(CHP);
+ dem := dem + 1;
+if(dem=4) then dem:=0;
+end if;
+end if;
+end if;
+
+END PROCESS;
+end Behavioral;

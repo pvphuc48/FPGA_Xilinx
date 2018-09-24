@@ -1,0 +1,71 @@
+Pin Freeze File:  version P.20131013
+
+2C256144 XC2C256-7-TQ144
+BTDOWN S:PIN61
+BTUP S:PIN60
+CLK S:PIN38
+CLR S:PIN2
+GIAYPHUT S:PIN4
+PAUSE S:PIN5
+UD S:PIN3
+SSEG_7<0> S:PIN33
+SSEG_7<1> S:PIN34
+SSEG_7<2> S:PIN35
+SSEG_7<3> S:PIN39
+SSEG_7<4> S:PIN41
+SSEG_7<5> S:PIN42
+SSEG_7<6> S:PIN43
+SSEG_7<7> S:PIN81
+SSEG_7<8> S:PIN82
+SSEG_7<9> S:PIN77
+SSEG_7<10> S:PIN78
+
+
+;The remaining section of the .gyd file is for documentation purposes only.
+;It shows where your internal equations were placed in the last successful fit.
+
+PARTITION FB1_1 DVT<10> DVT<11> DVG<0> DVT<7>
+		 DVT<13> DVG<1> DVT<12> N_PZ_627
+		 N_PZ_385 DVT<14> DVT<15> DVT<8>
+		 DVG<2> DVT<9> DVT<16> DVG<3>
+		
+PARTITION FB2_1 clock_div_sig U1/count<11> U1/count<0> U1/count<17>
+		 U1/count<16> U1/count<10> U1/count<9> U1/count<8>
+		 U1/count<7> U1/count<6> U1/count<3> U1/count<15>
+		 U1/count<14> U1/count<13> U1/count<12> U1/count<2>
+		
+PARTITION FB3_8 N_PZ_453 CHP<3> CHP<2> CHP<1>
+		 CHP<0> CHG<3>
+PARTITION FB3_15 SSEG_7<6>_BUFR
+
+PARTITION FB4_3 DVT_mux0005<7>12 N_PZ_529 N_PZ_513 CHG<0>
+		 DVT<6> DVT<3> DVT<2> DVT<1>
+		 DVT<0> DVT<4> U1/count<5> DVT<5>
+		 U1/count<4> U1/count<1>
+PARTITION FB5_1 dem_FSM_FFd1 SSEG_7<0> N_PZ_489
+PARTITION FB5_5 dem_FSM_FFd4 dem_FSM_FFd3 N_PZ_552 N_PZ_392
+		 N_PZ_555 CHP_cmp_eq0001 N_PZ_614 CHP_mux0007<3>15
+		 DVP<1> dem_FSM_FFd2 DVP<3> N_PZ_571
+		
+PARTITION FB6_1 SSEG_7<1> SSEG_7<2>
+PARTITION FB6_11 CHG_cmp_eq0001 SSEG_7<3>
+PARTITION FB6_14 SSEG_7<4> SSEG_7<5> SSEG_7<6>
+PARTITION FB7_1 N_PZ_456 N_PZ_523 N_PZ_454 N_PZ_339
+		
+PARTITION FB7_7 DVP<2> DVP<0> CHG<1> CHG<2>
+		
+PARTITION FB7_13 DVP_cmp_eq0002 CHG_cmp_eq0002 N_PZ_501 N_PZ_499
+		
+
+
+
+
+
+PARTITION FB13_3 SSEG_7<9>
+PARTITION FB13_5 SSEG_7<10>
+PARTITION FB13_13 SSEG_7<7> SSEG_7<8>
+
+
+
+
+
